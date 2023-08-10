@@ -22,12 +22,14 @@ const Navbar = () => {
 
                 <button className="md:hidden block">
                         <Image src='/hambicon.png' alt='hamburger' width={80} height={80} />
-                        <div className="absolute top-0 right-0 h-screen w-8/12 bg-white border">
+                        <div>
                             <ul className="flex flex-col items-center w-full text-base cursor-pointer pt-10">
-                                <li></li>
-                                <li></li>
+                                <li className="link">Contact</li>
+                                <li className="link">About</li>
                             </ul>
-                            <button></button>
+                            <button className="w-[150px] bg-orange-400 h-[50px] rounded-2xl hover:bg-orange-600 transition">
+                                <p className="text-white font-bold text-[18px]">Time to order</p>
+                            </button>
                         </div>
                 </button>
               </nav>
