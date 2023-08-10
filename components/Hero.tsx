@@ -1,9 +1,10 @@
-import Image from "next/image"
+
 
 const Hero = () => {
+
   return (
     <>
-      <div>
+      <div className="max-w-lg">
         
       </div>
     </>
