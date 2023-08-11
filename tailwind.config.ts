@@ -11,6 +11,12 @@ const config: Config = {
       colors: {
         
       },
+      keyframes: {
+        wiggle: {
+          '0%': { position: 'absolute',},
+          '100%' : { position: 'absolute'}
+        }
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':

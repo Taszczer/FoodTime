@@ -10,3 +10,35 @@
 .link{
   @apply hover:text-orange-600 cursor-pointer 
 }
+
+@keyframes wiggle {
+  0% {
+      top: -150%;
+  }
+  15% {
+    top: 100%;
+  }
+  100% {
+      top: 100%;
+  }
+}
+
+@layer utilities {
+  .animate-wiggle {
+      @apply absolute z-0;
+      animation: wiggle 2s ease-in-out ; 
+  }
+  .spintime {
+    @apply  z-0;
+      animation: spin 0.5s ; 
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(180deg);
+  }
+}
