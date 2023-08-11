@@ -1,8 +1,15 @@
 "use client"
 
 import Image from "next/image"
+import { useState } from "react"
 
 const Navbar = () => {
+
+    const [isOpen, setIsOpen] = useState(false)
+
+    const toggleMenu = () => {
+        setIsOpen(!isOpen);
+    };
 
     return (
       <>
@@ -20,18 +27,10 @@ const Navbar = () => {
                     </button>
                 </div>
 
-                <button className="md:hidden block">
-                        <Image src='/hambicon.png' alt='hamburger' width={80} height={80} />
-                        <div>
-                            <ul className="flex flex-col items-center w-full text-base cursor-pointer pt-10">
-                                <li className="link">Contact</li>
-                                <li className="link">About</li>
-                            </ul>
-                            <button className="w-[150px] bg-orange-400 h-[50px] rounded-2xl hover:bg-orange-600 transition">
-                                <p className="text-white font-bold text-[18px]">Time to order</p>
-                            </button>
-                        </div>
+                <button className="md:hidden block" onClick={toggleMenu}>
+                    {isOpen ? <Image src='/cancel.png' alt="close button" width={60} height={60} className="mr-3"/> : <Image src='/hambicon.png' alt='hamburger' width={80} height={80} />}   
                 </button>
+                     
               </nav>
         </header>
       </>
