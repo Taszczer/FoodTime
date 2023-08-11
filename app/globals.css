@@ -8,5 +8,5 @@
 }
 
 .link{
-  @apply hover:text-orange-600 cursor-pointer
+  @apply hover:text-orange-600 cursor-pointer 
 }
