@@ -13,8 +13,8 @@ const Navbar = () => {
 
     return (
       <>
-        <header className="w-full absolute ">
-              <nav className="max-w-[1640px] z-100 sm:px-16 px-6 py-4 h-[100px] flex justify-between items-center bg-[#EAE7DC]">
+        <header className="w-full">
+              <nav className="max-w-[1640px] h-[100px] z-10 sm:px-16 px-6 py-4 flex justify-between items-center bg-[#EAE7DC]">
                   <Image src="/forLogo.png" alt="logo" width={120} height={120} className="object-contain" />
                   
                 <div className="hidden md:flex items-center gap-12 cursor-pointer">
@@ -35,8 +35,8 @@ const Navbar = () => {
                 </button>
                 </nav>
                 {isOpen ? (
-                    <div className="md:hidden flex flex-col bg-[#e7e1cd] w-full z-0 animate-wiggle justify-center items-center">
-                        <ul className="w-full flex flex-col justify-center items-center text-[24px] mt-4 font-bold text-orange-400 gap-2">
+                    <div className="absolute md:hidden flex flex-col bg-[#e7e1cd] w-full z-0 animate-wiggle justify-center items-center">
+                        <ul className="w-full flex flex-col justify-center items-center text-[24px] mt-6 font-bold text-orange-400 gap-2">
                         <li className="link">Contact</li>
                         <li className="link">About</li>
                         </ul>
