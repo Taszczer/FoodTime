@@ -20,14 +20,17 @@ const Carousel = () => {
   return (
     <div className="flex flex-col items-center">
       <div className="w-full justify-between">
-        <div className={`w-full h-[470px] ${bootstrapItems[index].colors}`}></div>
+        <div className={`w-full h-[470px] ${bootstrapItems[index].colors}`}>
+          <div className="flex items-center w-[95%] h-[470px] justify-between">
+            <button className="" onClick={handlePrev}>
+             Previous
+            </button>
+            <button className="btn btn-primary" onClick={handleNext}>
+            Next
+            </button>
+          </div>
+        </div>
       </div>
-      <button className="btn btn-secondary mr-2" onClick={handlePrev}>
-          Previous
-        </button>
-        <button className="btn btn-primary" onClick={handleNext}>
-          Next
-        </button>
       <div className="text-center mt-4">
         <h3 className="text-xl font-semibold">{bootstrapItems[index].title}</h3>
         <p>{bootstrapItems[index].body}</p>
