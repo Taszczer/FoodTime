@@ -11,23 +11,7 @@
   @apply hover:text-orange-600 cursor-pointer 
 }
 
-@keyframes wiggle {
-  0% {
-      top: -150%;
-  }
-  20% {
-    top: 32%;
-  }
-  100% {
-      top: 32%;
-  }
-}
-
 @layer utilities {
-  .animate-wiggle {
-      @apply absolute z-0;
-      animation: wiggle 2s ease-in-out ; 
-  }
   .spintime {
     @apply  z-0;
       animation: spin 0.5s ; 
