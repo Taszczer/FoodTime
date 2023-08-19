@@ -2,6 +2,7 @@
 
 import Image from "next/image"
 import { useState } from "react"
+import { imagesForSlider } from "@/constants";
 
 const Navbar = () => {
 
@@ -11,10 +12,11 @@ const Navbar = () => {
         setIsOpen(!isOpen);
     };
 
+
     return (
       <>
         <header className="w-full">
-              <nav className="max-w-[1640px] h-[100px] z-10 sm:px-16 px-6 py-4 flex justify-between items-center bg-[#EAE7DC]">
+              <nav className="max-w-[1640px] h-[120px] overflow-y-hidden z-10 sm:px-16 px-6 flex justify-between items-center bg-[#EAE7DC]">
                   <Image src="/forLogo.png" alt="logo" width={120} height={120} className="object-contain" />
                   
                 <div className="hidden md:flex items-center gap-12 cursor-pointer">
