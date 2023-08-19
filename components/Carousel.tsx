@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { imagesForSlider } from "@/constants";
-import BsArrowRightCircle from "react-icons/tb"
+import {BsArrowRightCircle} from "react-icons/bs"
+import Image from "next/image";
 
 const Carousel = () => {
   const bootstrapItems = imagesForSlider[0].items.bootstrap; 
@@ -26,11 +27,11 @@ const Carousel = () => {
         <div className={`w-full h-[570px] items-center ${currentBackgroundColor}`}>
           <div className="flex ml-[9%] w-[80%] h-[570px] items-center justify-between">
             <button className="" onClick={handlePrev}>
-             Previous
+              <Image src='/leftarrow.png' alt="left arrow" width={60} height={60} className="mt-5"/>
             </button>
-            <h3 className="text-white text-[100px] font-semibold">{bootstrapItems[index].title}</h3>
+            <h3 className="text-white text-[200px] font-semibold">{bootstrapItems[index].title}</h3>
             <button className="" onClick={handleNext}>
-            Next
+              <Image src='/rightarrow.png' alt="left arrow" width={60} height={60} className="mt-5"/>
             </button>
           </div>
         </div>

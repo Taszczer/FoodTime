@@ -41,21 +41,21 @@ export const imagesForSlider = [
       bootstrap: [
         {
           id: 1,
-          title: "Photography",
+          title: "Burger",
           body: "Bootstrap Carousel Example",
           imageUrl: "https://res.cloudinary.com/kizmelvin/image/upload/v1586799813/kizmelvin/persons_pigeon_nurkq2.jpg",
           colors:"bg-[#D8C3A5]"
         },
         {
           id: 2,
-          title: "City Views",
+          title: "Pizza",
           body: "Bootstrap Carousel Example",
           imageUrl: "https://res.cloudinary.com/kizmelvin/image/upload/v1587785064/kizmelvin/michael-BcgEo2CNeYA-unsplash_cdaruk.jpg",  
           colors:"bg-orange-300"
         },
         {
           id: 3,
-          title: "Wild Life",
+          title: "Hotdog",
           body: "Bootstrap Carousel Example",
           imageUrl: "https://res.cloudinary.com/kizmelvin/image/upload/v1586799827/kizmelvin/brownlion_qm8hah.jpg",
           colors: "bg-[#E98074]"
