@@ -37,36 +37,27 @@ export const footerLinks = [
   
 export const imagesForSlider = [
   {
-    items: {
-      bootstrap: [
-        {
-          id: 1,
-          title: "Burger",
-          butOn: "Show this product",
-          colorForBt: "bg-[#B3A086]",
-          product: "/burger.png",
-          imageUrl: "https://res.cloudinary.com/kizmelvin/image/upload/v1586799813/kizmelvin/persons_pigeon_nurkq2.jpg",
-          colors:"bg-[#D8C3A5]"
-        },
-        {
-          id: 2,
-          title: "Pizza",
-          butOn: "Show this product",
-          colorForBt: "bg-orange-400",
-          product: "/pizza.png",
-          imageUrl: "https://res.cloudinary.com/kizmelvin/image/upload/v1587785064/kizmelvin/michael-BcgEo2CNeYA-unsplash_cdaruk.jpg",  
-          colors:"bg-orange-300"
-        },
-        {
-          id: 3,
-          title: "Hotdog",
-          butOn: "Show this product",
-          colorForBt: "bg-[#B8655C]",
-          product: "/hotdog.png",
-          imageUrl: "https://res.cloudinary.com/kizmelvin/image/upload/v1586799827/kizmelvin/brownlion_qm8hah.jpg",
-          colors: "bg-[#E98074]"
-        },
-      ]
-    }
-  }
-  ]
+    id: 1,
+    title: "Burger",
+    butOn: "Show this product",
+    colorForBt: "bg-[#B3A086]",
+    product: "/burger.png",
+    colors:"bg-[#D8C3A5]"
+  },
+  {
+    id: 2,
+    title: "Pizza",
+    butOn: "Show this product",
+    colorForBt: "bg-orange-400",
+    product: "/pizza.png",
+    colors:"bg-orange-300"
+  },
+  {
+    id: 3,
+    title: "Hotdog",
+    butOn: "Show this product",
+    colorForBt: "bg-[#B8655C]",
+    product: "/hotdog.png",
+    colors: "bg-[#E98074]"
+  },
+]

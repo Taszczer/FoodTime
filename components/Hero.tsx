@@ -1,14 +1,14 @@
-import { Carousel } from "." 
+import React from "react";
+import Carousel from "./Carousel"; // Update the import path
+import { imagesForSlider } from "@/constants";
 
 const Hero = () => {
+  return (
+    <div className="">
+      <Carousel backgrounds={imagesForSlider} />
+      ajfhd
+    </div>
+  );
+};
 
-    return (
-      <>
-        <div className="">
-          < Carousel />
-        </div>
-      </>
-    )
-  }
-  //color patern #EAE7DC, #D8C3A5 #38E8D8A #E98074 #E85A4F
-  export default Hero
+export default Hero;
