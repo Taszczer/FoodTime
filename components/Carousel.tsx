@@ -57,7 +57,7 @@ const Carousel = ({ backgrounds }: CarouselProps) => {
                       hidden: { opacity: 0, scale: 0, x: 0 }
                     }}
                   >
-                    <img src={background.backImage} alt="bgImage" className="w-full object-contain"/>
+                    <img src={background.backImage} alt="bgImage" className="w-full object-contain ml-[-30px]"/>
                   </motion.div>
               <button className="z-50" onClick={next}>
                 <Image src='/rightarrow.png' alt="left arrow" width={60} height={60} className="mr-10 mt-10 z-50 object-contain"/>
