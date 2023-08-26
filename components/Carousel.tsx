@@ -79,5 +79,4 @@ const Carousel = ({ backgrounds }: CarouselProps) => {
   );
 }
 
-
 export default Carousel;
