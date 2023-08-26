@@ -10,4 +10,5 @@ export interface Background {
   product: string,
   imageUrl: string
   colors: string,
+  backImage:string
 }

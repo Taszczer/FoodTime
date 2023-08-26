@@ -41,6 +41,7 @@ export const imagesForSlider = [
     title: "Burger",
     butOn: "Show this product",
     colorForBt: "bg-[#B3A086]",
+    backImage: "/forBg.png",
     product: "/burger.png",
     colors:"bg-[#D8C3A5]"
   },
@@ -49,6 +50,7 @@ export const imagesForSlider = [
     title: "Pizza",
     butOn: "Show this product",
     colorForBt: "bg-orange-400",
+    backImage: "/forBg2.png",
     product: "/pizza.png",
     colors:"bg-orange-300"
   },
@@ -57,6 +59,7 @@ export const imagesForSlider = [
     title: "Hotdog",
     butOn: "Show this product",
     colorForBt: "bg-[#B8655C]",
+    backImage: "/forBg3.png",
     product: "/hotdog.png",
     colors: "bg-[#E98074]"
   },

@@ -37,10 +37,10 @@ const Navbar = () => {
                 </button>
                 </nav>
                 {isOpen ? (
-                    <div className="absolute md:hidden flex flex-col bg-[#e7e1cd] w-full z-0 animate-wiggle justify-center items-center">
-                        <ul className="w-full flex flex-col justify-center items-center text-[24px] mt-6 font-bold text-orange-400 gap-2">
-                        <li className="link">Contact</li>
-                        <li className="link">About</li>
+                    <div className="md:hidden flex flex-col bg-[#e7e1cd] w-full z-100 justify-center items-center">
+                        <ul className="z-100 w-full flex flex-col justify-center items-center text-[24px] mt-6 font-bold text-orange-400 gap-2">
+                        <li className="z-100 link">Contact</li>
+                        <li className="z-100 link">About</li>
                         </ul>
                         <button className="w-[150px] bg-orange-400 h-[50px] rounded-2xl hover:bg-orange-600 transition mb-10 mt-6">
                         <p className="text-white font-bold text-[18px]">Time to order</p>
