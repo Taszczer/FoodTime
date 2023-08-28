@@ -12,3 +12,8 @@ export interface Background {
   colors: string,
   backImage:string
 }
+
+export interface SearchManufacturerProps {
+  selected: string
+  setSelected: (selected: string) => void
+}

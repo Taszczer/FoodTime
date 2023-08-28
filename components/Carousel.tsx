@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from "react";
-import { imagesForSlider, slides } from "@/constants";
+import { imagesForSlider } from "@/constants";
 import Image from "next/image";
 import { Background } from "@/types";
 import { motion } from "framer-motion"

@@ -15,8 +15,10 @@ export default function Home() {
           <div className=''>
             <SearchBar />
           </div>
+  
         </div>
       </div>
+      ufakdfjk
     </main>
   )
 }

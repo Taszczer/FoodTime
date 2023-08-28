@@ -1,15 +1,21 @@
+"use client"
+
 import React from 'react'
-import { Combobox } from '@headlessui/react'
+import SearchManufacturer from './SearchManufacturer'
+import { useState } from 'react'
 
 const SearchBar = () => {
+
+  const [searchManufacturer, setSearchManufacturer] = useState('')
+
   return (
-    <form action="flex items-center justify-start max-sm:flex-col w-full relative max-sm:gap-4 max-w-3xl">
-          <input
-            className='w-full h-[48px] pl-12 p-4 text-sm cursor-pointer outline-none rounded-r-full max-sm:rounded-ful bg-slate-400'
-            type="text"
-            name="model"
-            placeholder="Hamburger..."
+    <form className="flex items-center justify-start max-sm:flex-col w-full relative max-sm:gap-4 max-w-3xl">
+      <div>
+        <SearchManufacturer
+          selected={searchManufacturer}
+          setSelected={setSearchManufacturer}
         />
+      </div>
     </form>
   )
 }
