@@ -6,7 +6,6 @@ const Hero = () => {
   return (
     <div className="">
       <Carousel backgrounds={imagesForSlider} />
-      ajfhd
     </div>
   );
 };
