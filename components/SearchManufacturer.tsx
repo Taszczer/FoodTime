@@ -15,12 +15,12 @@ const SearchManufacturer = ({ selected, setSelected}:SearchManufacturerProps) =>
     );
   
     return (
-      <div className='flex-1 max-sm:w-full flex justify-start items-center '>
+      <div className='flex-1 max-sm:w-full flex justify-start items-center'>
         <Combobox value={selected} onChange={setSelected}>
           <div className='relative w-full'>
             
             <Combobox.Input
-              className='bg-orange-300 text-white font-bold text-[19px] mt-5 h-[48px] pl-12 p-4 w-[250px] placeholder:text-white rounded-2xl max-sm:rounded-full bg-light-white outline-none cursor-pointer'
+              className='bg-orange-300 text-white font-bold text-[18px] mt-5 h-[48px] pl-12 p-4 w-[280px] placeholder:text-white rounded-2xl max-sm:rounded-full bg-light-white outline-none cursor-pointer'
               displayValue={(item: string) => item}
               onChange={(event) => setQuery(event.target.value)} // Update the search query when the input changes
               placeholder='Search food...'

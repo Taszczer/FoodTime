@@ -17,3 +17,7 @@ export interface SearchManufacturerProps {
   selected: string
   setSelected: (selected: string) => void
 }
+
+export interface FilterProps {
+  manufacturer: string
+}
