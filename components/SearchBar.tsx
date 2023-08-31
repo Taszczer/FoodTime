@@ -10,7 +10,7 @@ const SearchBar = () => {
 
   return (
     <form className="flex items-center justify-start max-sm:flex-col w-full relative max-sm:gap-4 max-w-3xl">
-      <div>
+      <div className='z-100'>
         <SearchManufacturer
           selected={searchManufacturer}
           setSelected={setSearchManufacturer}

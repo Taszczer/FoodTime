@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 const Footer = () => {
   return (
-    <footer className='flex flex-col text-orange-300 border-t border-[#EAE7DC] mt-5 '>
+    <footer className='flex flex-col text-orange-300 border-t border-[#EAE7DC] mt-[300px] '>
         <div className='flex max-md:flex-col flex-wrap justify-between gap-5 sm:px-16 px-6 py-10'>
             <div className='flex justify-start'>
               <Image src='/forLogo.png' alt='logo' width={100} height={100} className=' object-contain'/>      

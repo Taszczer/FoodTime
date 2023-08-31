@@ -11,11 +11,8 @@ export default function Home() {
           <div className='flex flex-col items-start justify-start gap-y-2.5 text-black-100'>
             <h1 className='text-orange-400 text-4xl font-extrabold'>Food catalog</h1>
             <p className='font-bold text-orange-300 text-2xl'>Order and enjoy</p>
-          </div>
-          <div className=''>
             <SearchBar />
           </div>
-  
         </div>
       </div>
       ufakdfjk
