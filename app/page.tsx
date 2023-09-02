@@ -1,8 +1,13 @@
+"use client"
+
 import { Footer, Hero, Navbar, Carousel, SearchBar } from '@/components'
 import Image from 'next/image'
+import { useState } from 'react'
 
 
 export default function Home() {
+
+  const [manufacturer, setManufacturer] = useState('')
   return (
     <main className="overflow-hidden"> 
       <Hero />
@@ -11,7 +16,10 @@ export default function Home() {
           <div className='flex flex-col items-start justify-start gap-y-2.5 text-black-100'>
             <h1 className='text-orange-400 text-4xl font-extrabold'>Food catalog</h1>
             <p className='font-bold text-orange-300 text-2xl'>Order and enjoy</p>
-            <SearchBar />
+            <SearchBar
+              setManufacturer={setManufacturer}
+              
+            />
           </div>
         </div>
       </div>
