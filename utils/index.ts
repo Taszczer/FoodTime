@@ -1,16 +1,24 @@
-import { FilterProps } from "@/types"
+import { NextResponse } from "next/server"
 
-export async function fetchFood(filters: FilterProps) {
-
-	const { manufacturer} = filters 
-
-	const headers = {
-		'X-RapidAPI-Key': 'ea368868650145f9bcba1c8f3c8d35b0',
-		'X-RapidAPI-Host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
+//https://api.spoonacular.com/food/menuItems/search
+export default async function fetchFood({req, res}: any) {
+	try {
+	  const apiKey = "ea368868650145f9bcba1c8f3c8d35b0"; // Replace with your actual API key
+	  const targetCalories = req.query.calories; // Get the calories from the query parameters
+  
+	  const response = await fetch(
+		`https://api.spoonacular.com/mealplanner/generate?apiKey=${apiKey}&targetCalories=${targetCalories}`
+	  );
+  
+	  if (!response.ok) {
+		throw new Error("Failed to fetch meal data");
+	  }
+  
+	  const data = await response.json();
+  
+	  res.status(200).json(data);
+	} catch (error) {
+	  console.error(error);
+	  res.status(500).json({ error: "An error occurred" });
 	}
-
-	const response = await fetch(`https://api.spoonacular.com/food/menuItems/search?make=${manufacturer}`)
-	const result = await response.json()
-
-	return result
-}
+  }

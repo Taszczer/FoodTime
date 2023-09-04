@@ -4,11 +4,11 @@ import React from 'react'
 import Image from 'next/image'
 import SearchManufacturer from './SearchManufacturer'
 import { useState } from 'react'
-import { useRouter } from 'next/router'
 
 const SearchBar = ( { setManufacturer }:any ) => {
 
   const [searchManufacturer, setSearchManufacturer] = useState('')
+  const [searchCalories, setSearchCalories] = useState('')
 
   const handleChange = (e: React.FormEvent<HTMLElement>) => {
     e.preventDefault();
@@ -20,27 +20,45 @@ const SearchBar = ( { setManufacturer }:any ) => {
     setManufacturer(searchManufacturer);
   }
 
+  const SearchButton = ({ otherClasses } : { otherClasses: string }) => (
+    <button type="submit" className={`ml-[-80px] z-10 ${otherClasses}`}>
+        <Image
+          src='/search.png'
+          alt='search'
+          width={70}
+          height={70}
+          className='object-contain'
+        />
+    </button>
+  )
+
   return (
     <form
-      className="flex items-center justify-start max-sm:flex-col w-full relative max-sm:gap-4 max-w-3xl"
+      className="mt-4 flex items-center justify-start max-sm:flex-col w-full relative max-sm:gap-4 max-w-3xl"
       onSubmit={handleChange}
     >
-      <div className='z-50 flex-1 max-sm:w-full flex justify-start items-center'>
-        <SearchManufacturer
-          selected={searchManufacturer}
-          setSelected={setSearchManufacturer}
+        <div className="flex-1 max-sm:w-full flex justify-start items-center relative">
+          <SearchManufacturer
+            selected={searchManufacturer}
+            setSelected={setSearchManufacturer}
+          />  
+          <SearchButton otherClasses="sm:hidden"/>
+        </div>
+      <div className="flex-1 max-sm:w-full flex justify-start items-center relative">
+        <input
+          type="number"
+          name="model"
+          value={searchCalories}
+          onChange={(e) => setSearchCalories(e.target.value)}
+          placeholder="Calories..."
+          className="w-full text-white placeholder:text-white placeholder:text-base h-[48px] pl-12 p-4 bg-light-white rounded-r-full max-sm:rounded-full outline-none cursor-pointer text-sm bg-orange-400"
         />
-        <button type="submit" className="absolute left-[70%] top-2">
-          <Image
-            src='/search.svg'
-            alt='search'
-            width={80}
-            height={80}
-            className='object-contain'
-          />
-        </button>
+
+        <SearchButton otherClasses="sm:hidden" />
       </div>
+      <SearchButton otherClasses="max-sm:hidden" />
     </form>
+    
   )
 }
 
