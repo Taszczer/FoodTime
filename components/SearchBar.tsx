@@ -4,6 +4,7 @@ import React from 'react'
 import Image from 'next/image'
 import SearchManufacturer from './SearchManufacturer'
 import { useState } from 'react'
+import fetchFood from '@/utils'
 
 const SearchBar = ( { setManufacturer }:any ) => {
 
@@ -21,7 +22,7 @@ const SearchBar = ( { setManufacturer }:any ) => {
   }
 
   const SearchButton = ({ otherClasses } : { otherClasses: string }) => (
-    <button type="submit" className={`ml-[-80px] z-10 ${otherClasses}`}>
+    <button type="submit" onClick={fetchFood} className={`ml-[-80px] z-10 ${otherClasses}`}>
         <Image
           src='/search.png'
           alt='search'

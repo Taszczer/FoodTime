@@ -1,3 +1,5 @@
+import { NextApiRequest, NextApiResponse } from "next"
+
 export interface ButtonProps {
   onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
@@ -20,4 +22,9 @@ export interface SearchManufacturerProps {
 
 export interface FilterProps {
   manufacturer: string
+}
+
+export interface ForFetch {
+  req: any 
+  res: any
 }

@@ -1,13 +1,14 @@
-import { NextResponse } from "next/server"
+import { ForFetch } from "@/types";
 
 //https://api.spoonacular.com/food/menuItems/search
-export default async function fetchFood({req, res}: any) {
+export default async function fetchFood({req, res}: ForFetch) {
 	try {
-	  const apiKey = "ea368868650145f9bcba1c8f3c8d35b0"; // Replace with your actual API key
-	  const targetCalories = req.query.calories; // Get the calories from the query parameters
+	  const apiKey = "ea368868650145f9bcba1c8f3c8d35b0"; 
+	  const targetCalories = req.query.calories; 
+	  const targetMeal = req.query.food	
   
 	  const response = await fetch(
-		`https://api.spoonacular.com/mealplanner/generate?apiKey=${apiKey}&targetCalories=${targetCalories}`
+		`https://api.spoonacular.com/mealplanner/generate?apiKey=${apiKey}&targetMeal=${targetMeal}&targetCalories=${targetCalories}`
 	  );
   
 	  if (!response.ok) {
