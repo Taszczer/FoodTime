@@ -4,7 +4,6 @@ import { useState, Fragment } from 'react'
 import { SearchManufacturerProps } from '@/types'
 import { foodName } from '@/constants'
 import { Combobox, Transition} from '@headlessui/react'
-import Image from 'next/image'
 
 const SearchManufacturer = ({ selected, setSelected }: SearchManufacturerProps) => {
   const [query, setQuery] = useState("");

@@ -24,7 +24,3 @@ export interface FilterProps {
   manufacturer: string
 }
 
-export interface ForFetch {
-  req: any 
-  res: any
-}

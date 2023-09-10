@@ -5,12 +5,13 @@ import Image from 'next/image'
 import SearchManufacturer from './SearchManufacturer'
 import { useState } from 'react'
 import fetchFood from '@/utils'
+import MealList  from './MealList'
 
-const SearchBar = ( { setManufacturer }:any ) => {
+const SearchBar = ( { setManufacturer, setCalories }:any ) => {
 
   const [searchManufacturer, setSearchManufacturer] = useState('')
   const [searchCalories, setSearchCalories] = useState('')
-
+  
   const handleChange = (e: React.FormEvent<HTMLElement>) => {
     e.preventDefault();
   
@@ -18,11 +19,12 @@ const SearchBar = ( { setManufacturer }:any ) => {
       return alert('Please fill in the search bar');
     }
   
+    setCalories(searchCalories)
     setManufacturer(searchManufacturer);
   }
 
   const SearchButton = ({ otherClasses } : { otherClasses: string }) => (
-    <button type="submit" onClick={fetchFood} className={`ml-[-80px] z-10 ${otherClasses}`}>
+    <button type="submit" className={`ml-[-80px] z-10 ${otherClasses}`}>
         <Image
           src='/search.png'
           alt='search'
@@ -43,12 +45,12 @@ const SearchBar = ( { setManufacturer }:any ) => {
             selected={searchManufacturer}
             setSelected={setSearchManufacturer}
           />  
-          <SearchButton otherClasses="sm:hidden"/>
+        <SearchButton otherClasses="sm:hidden" />
         </div>
       <div className="flex-1 max-sm:w-full flex justify-start items-center relative">
         <input
           type="number"
-          name="model"
+          name="calories"
           value={searchCalories}
           onChange={(e) => setSearchCalories(e.target.value)}
           placeholder="Calories..."
@@ -56,10 +58,11 @@ const SearchBar = ( { setManufacturer }:any ) => {
         />
 
         <SearchButton otherClasses="sm:hidden" />
+
       </div>
       <SearchButton otherClasses="max-sm:hidden" />
+
     </form>
-    
   )
 }
 

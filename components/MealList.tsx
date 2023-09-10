@@ -1,6 +1,6 @@
 import React from 'react'
 
-const MealList = () => {
+const MealList = ({ mealData }:any) => {
   return (
     <div>MealList</div>
   )

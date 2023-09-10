@@ -8,6 +8,7 @@ import { useState } from 'react'
 export default function Home() {
 
   const [manufacturer, setManufacturer] = useState('')
+  const [calories, setCalories] = useState('')
   return (
     <main className=""> 
       <Hero />
@@ -20,6 +21,7 @@ export default function Home() {
         </div>
         <SearchBar
           setManufacturer={setManufacturer}
+          setCalories={setCalories}
         />
       </div>
     </main>
