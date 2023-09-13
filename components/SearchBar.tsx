@@ -7,20 +7,11 @@ import { useState } from 'react'
 import fetchFood from '@/utils'
 import MealList  from './MealList'
 
-const SearchBar = ( { setManufacturer, setCalories }:any ) => {
-
-  const [searchManufacturer, setSearchManufacturer] = useState('')
-  const [searchCalories, setSearchCalories] = useState('')
+const SearchBar = () => {
   
   const handleChange = (e: React.FormEvent<HTMLElement>) => {
     e.preventDefault();
-  
-    if (searchManufacturer === '') {
-      return alert('Please fill in the search bar');
-    }
-  
-    setCalories(searchCalories)
-    setManufacturer(searchManufacturer);
+
   }
 
   const SearchButton = ({ otherClasses } : { otherClasses: string }) => (
@@ -42,8 +33,6 @@ const SearchBar = ( { setManufacturer, setCalories }:any ) => {
     >
         <div className="flex-1 max-sm:w-full flex justify-start items-center relative">
           <SearchManufacturer
-            selected={searchManufacturer}
-            setSelected={setSearchManufacturer}
           />  
         <SearchButton otherClasses="sm:hidden" />
         </div>
@@ -51,8 +40,8 @@ const SearchBar = ( { setManufacturer, setCalories }:any ) => {
         <input
           type="number"
           name="calories"
-          value={searchCalories}
-          onChange={(e) => setSearchCalories(e.target.value)}
+          //value={searchCalories}
+          //onChange={(e) => setSearchCalories(e.target.value)}
           placeholder="Calories..."
           className="w-full text-white placeholder:text-white placeholder:text-base h-[48px] pl-12 p-4 bg-light-white rounded-r-full max-sm:rounded-full outline-none cursor-pointer text-sm bg-orange-400"
         />
