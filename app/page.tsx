@@ -3,12 +3,25 @@
 import { Footer, Hero, Navbar, Carousel, SearchBar } from '@/components'
 import Image from 'next/image'
 import { useState } from 'react'
+import useFetchFood from '@/utils'
 
 
 export default function Home() {
-
   const [manufacturer, setManufacturer] = useState('')
   const [calories, setCalories] = useState('')
+
+  const allCars = useFetchFood(manufacturer, calories)
+
+  console.log(allCars)
+
+  function Component() {
+    const { data, isError } = useFetchFood('manufacturer', 'calories');
+  
+    if (isError) {
+      return <p>Error loading data.</p>;
+    }
+  }
+
   return (
     <main className=""> 
       <Hero />
