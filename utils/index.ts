@@ -1,27 +1,27 @@
+import useSWR from 'swr';
+import axios from 'axios';
 
-import axios from 'axios'
-
-export default async function fetchFood(setManufacturer: string, calories?: string) {
-  
-  const apiKey = "ea368868650145f9bcba1c8f3c8d35b0";
-  const apiUrl = "https://api.spoonacular.com/food/menuItems"
-  
+const fetcher = async (url: any) => {
   try {
-    const response = await axios.get(
-      `${apiUrl}/search?apiKey=${apiKey}&manufacturer=${setManufacturer}&calories=${calories}`, {
-        params: {
-          apiKey,
-          setManufacturer,
-          calories
-        },
-      }
-    );
+    const response = await axios.get(url);
     return response.data;
-    console.log (response.data)
-
   } catch (error) {
     console.error(error);
-    throw error
-    
+    throw error;
   }
+};
+
+const apiKey = "ea368868650145f9bcba1c8f3c8d35b0";
+const apiUrl = "https://api.spoonacular.com/food/menuItems";
+
+export default function useFetchFood(setManufacturer: string, calories?: string) {
+  const url = `${apiUrl}/search?apiKey=${apiKey}&manufacturer=${setManufacturer}&calories=${calories}`;
+
+  const { data, error } = useSWR(url, fetcher);
+
+  return {
+    data,
+    isLoading: !data && !error,
+    isError: error,
+  };
 }

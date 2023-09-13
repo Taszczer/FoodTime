@@ -20,8 +20,6 @@ export default function Home() {
           </div>
         </div>
         <SearchBar
-          setManufacturer={setManufacturer}
-          setCalories={setCalories}
         />
       </div>
     </main>
