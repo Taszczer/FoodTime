@@ -8,15 +8,16 @@ import useFetchFood from '@/utils'
 import MealList  from './MealList'
 
 const SearchBar = () => {
+
+  const [calories, setCalories] = useState("")
+  const [manufacturer, setManufacturer] = useState("")
   
   const handleChange = (e: React.FormEvent<HTMLElement>) => {
     e.preventDefault();
 
   }
 
-  function Component() {
-    const { data, isError } = useFetchFood('manufacturer', 'calories');
-  
+  function Component() {  
     if (isError) {
       return <p>Error loading data.</p>;
     }
@@ -40,7 +41,7 @@ const SearchBar = () => {
       onSubmit={handleChange}
     >
         <div className="flex-1 max-sm:w-full flex justify-start items-center relative">
-          <SearchManufacturer
+        <SearchManufacturer
           />  
         <SearchButton otherClasses="sm:hidden"/>
         </div>
@@ -48,8 +49,8 @@ const SearchBar = () => {
         <input
           type="number"
           name="calories"
-          //value={searchCalories}
-          //onChange={(e) => setSearchCalories(e.target.value)}
+          value={calories}
+          onChange={(e) => setCalories(e.target.value)}
           placeholder="Calories..."
           className="w-full text-white placeholder:text-white placeholder:text-base h-[48px] pl-12 p-4 bg-light-white rounded-r-full max-sm:rounded-full outline-none cursor-pointer text-sm bg-orange-400"
         />

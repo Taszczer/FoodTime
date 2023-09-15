@@ -1,26 +1,39 @@
 import useSWR from 'swr';
-import axios from 'axios';
 
-const fetcher = async (url: any) => {
-  try {
-    const response = await axios.get(url)
-    return response.data, console.log(response.data)
-  } catch (error) {
-    console.error(error)
-    throw error
+const API_KEY = 'ea368868650145f9bcba1c8f3c8d35b0';
+const API_URL = `https://api.spoonacular.com/food/menuItems/search?apiKey=${API_KEY}`
+
+export const fetcher = async (url: any) => {
+  const response = await fetch(url, {
+    headers: {
+      'Content-Type': 'application/json',
+      'Api-Key': 'ea368868650145f9bcba1c8f3c8d35b0'
+    }
+  });
+
+  if (!response.ok) {
+    throw new Error('Failed to fetch data');
   }
+
+  const data = await response.json();
+  return data;
+}
+
+const YourComponent = () => {
+  const { data, error } = useSWR(API_URL, fetcher)
+
+  if (error) {
+    console.error('Error loading data:', error)
+  }
+
+  if (!data) {
+    console.log('Loading data...')
+    return "Nothing to show";
+  }
+
+  console.log('Fetched data:', data)
+
+  return data; 
 };
 
-const apiKey = "ea368868650145f9bcba1c8f3c8d35b0";
-const apiUrl = "https://api.spoonacular.com/food/menuItems";
-
-export default function useFetchFood(setManufacturer: string, calories?: string) {
-  const url = `${apiUrl}/search?apiKey=${apiKey}&query=${setManufacturer}&calories=${calories}`
-
-  const { data, error } = useSWR(url, fetcher)
-
-  return {
-    data,
-    isError: error,
-  };
-}
+export default YourComponent
