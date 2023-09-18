@@ -4,7 +4,7 @@ import React from 'react'
 import Image from 'next/image'
 import SearchManufacturer from './SearchManufacturer'
 import { useState } from 'react'
-import useFetchFood from '@/utils'
+import { fetchFood } from '@/utils'
 import MealList  from './MealList'
 
 const SearchBar = () => {
@@ -17,14 +17,8 @@ const SearchBar = () => {
 
   }
 
-  function Component() {  
-    if (isError) {
-      return <p>Error loading data.</p>;
-    }
-  }
-
   const SearchButton = ({ otherClasses } : { otherClasses: string }) => (
-    <button onClick={Component} type="submit" className={`ml-[-80px] z-10 ${otherClasses}`}>
+    <button onClick={fetchFood} type="submit" className={`ml-[-80px] z-10 ${otherClasses}`}>
         <Image
           src='/search.png'
           alt='search'
