@@ -22,6 +22,12 @@ export async function fetchFood() {
 
 
 
+
+
+
+
+
+
 // import useSWR from 'swr';
 
 // const API_KEY = '650fb79ca9mshba0792dddafda81p1f4bd4jsn43bcbc367a30';
