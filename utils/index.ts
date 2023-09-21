@@ -1,15 +1,21 @@
 export async function fetchFood() {
   
-  const headers = {
-		'X-RapidAPI-Key': '650fb79ca9mshba0792dddafda81p1f4bd4jsn43bcbc367a30',
-		'X-RapidAPI-Host': 'cars-by-api-ninjas.p.rapidapi.com'
+  const url = 'https://tasty.p.rapidapi.com/feeds/list';
+  const options = {
+    method: 'GET',
+    headers: {
+      'X-RapidAPI-Key': '650fb79ca9mshba0792dddafda81p1f4bd4jsn43bcbc367a30',
+      'X-RapidAPI-Host': 'tasty.p.rapidapi.com'
     }
-    
-    const response = await fetch(`https://tasty.p.rapidapi.com/recipes/list?`, { headers: headers });
-    const result = await response.json()
-
+  };
   
-    return result
+  try {
+    const response = await fetch(url, options);
+    const result = await response.text();
+    console.log(result);
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 
