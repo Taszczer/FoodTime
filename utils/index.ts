@@ -1,26 +1,31 @@
-export async function fetchFood() {
+export async function fetchFood(filter:any) {
   
-  const url = 'https://tasty.p.rapidapi.com/feeds/list?size=5&timezone=%2B0700&vegetarian=false&from=0';
+  const { query, limit } = filter
+  
+  const API_KEY = "01b9fdb350088df3d85e27727c46b080	"
+  const API_ID  = "54f7ff7b"
+
+  const url =
+    `https://api.edamam.com/search?q=${query}&app_id=54f7ff7b&app_key=01b9fdb350088df3d85e27727c46b080&from=0&to=20`//limt
   const options = {
     method: 'GET',
     headers: {
       'X-RapidAPI-Key': '650fb79ca9mshba0792dddafda81p1f4bd4jsn43bcbc367a30',
-      'X-RapidAPI-Host': 'tasty.p.rapidapi.com'
+      'X-RapidAPI-Host': 'edamam-food-and-grocery-database.p.rapidapi.com'
     }
   };
-  
   try {
-    const response = await fetch(url, options);
-    const result = await response.text();
-    console.log(result);
+    const response = await fetch(url, options)
+    const result = await response.json()
+    console.log(result)
   } catch (error) {
-    console.error(error);
+    console.error(error)
   }
 
 }
 
 
-
+    
 
 
 // import useSWR from 'swr';
