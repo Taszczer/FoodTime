@@ -1,4 +1,6 @@
-export async function fetchFood(filter:any) {
+import { FilterProps } from "@/types"
+
+export async function fetchFood(filter: FilterProps) {
   
   const { query, limit } = filter
   
@@ -8,7 +10,8 @@ export async function fetchFood(filter:any) {
   try {
     const response = await fetch(url)
     const result = await response.json()
-    console.log(result)
+
+    return result
   } catch (error) {
     console.error(error)
   }

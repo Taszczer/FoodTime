@@ -21,6 +21,6 @@ export interface SearchManufacturerProps {
 }
 
 export interface FilterProps {
-  manufacturer: string
+  query: string,
+  limit: number
 }
-

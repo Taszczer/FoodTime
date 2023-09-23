@@ -2,7 +2,6 @@
 
 import Image from "next/image"
 import { useState } from "react"
-import { imagesForSlider } from "@/constants";
 
 const Navbar = () => {
 
@@ -24,8 +23,8 @@ const Navbar = () => {
                         <li className="link">Contact</li>
                         <li className="link">About</li>
                     </ul>
-                    <button className="w-[150px] bg-orange-400 h-[50px] rounded-2xl hover:bg-orange-600 transition">
-                            <p className="text-white font-bold text-[18px]">Time to order</p>
+                    <button className="w-[250px] bg-orange-400 h-[50px] rounded-2xl hover:bg-orange-600 transition">
+                            <p className="text-white font-bold text-[18px]">Find your dream food</p>
                     </button>
                 </div>
 

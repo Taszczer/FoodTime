@@ -1,13 +1,19 @@
 "use client"
 
-import { Footer, Hero, Navbar, Carousel, SearchBar } from '@/components'
+import { Footer, Hero, Navbar, Carousel, SearchBar, RecipeCard } from '@/components'
 import Image from 'next/image'
 import { useState } from 'react'
+import { fetchFood } from '@/utils'
 
 
 export default function Home() {
   
   const [recipes, setRecipes] = useState([])
+
+  const fetchRecipes = async () => { 
+    const recipes = await fetchFood({query, limit})
+    setRecipes(recipes)
+  }
 
   return (
     <main className=""> 
