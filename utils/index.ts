@@ -5,15 +5,11 @@ export async function fetchFood(filter: FilterProps) {
   const { query, limit } = filter
   
   const url =
-    `https://api.edamam.com/search?q=${query}&app_id=54f7ff7b&app_key=01b9fdb350088df3d85e27727c46b080&from=0&to=20`//limt
+    `https://api.edamam.com/search?q=${query}&app_id=54f7ff7b&app_key=01b9fdb350088df3d85e27727c46b080&from=0&to=${limit}`//limt
 
-  try {
     const response = await fetch(url)
     const result = await response.json()
-
+    console.log(result.hits)
     return result
-  } catch (error) {
-    console.error(error)
-  }
-
+  
 }

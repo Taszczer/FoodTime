@@ -2,18 +2,30 @@
 
 import { Footer, Hero, Navbar, Carousel, SearchBar, RecipeCard } from '@/components'
 import Image from 'next/image'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { fetchFood } from '@/utils'
 
 
 export default function Home() {
   
-  const [recipes, setRecipes] = useState([])
+  const [recipes, setAllRecipes] = useState([])
+  const [query, setQuery] = useState("")
+  const [limit, setLimit] = useState(10)
+  const [loading, setLoading] = useState(false)
 
   const fetchRecipes = async () => { 
-    const recipes = await fetchFood({query, limit})
-    setRecipes(recipes)
+    try {
+      const recipes = await fetchFood({ query: query || "", limit })
+      setAllRecipes(recipes)
+    } catch (error) { 
+      console.log(error)
+    }
   }
+
+  useEffect(() => { 
+    console.log(query, limit)
+    fetchRecipes()
+  }, [query, limit])
 
   return (
     <main className=""> 

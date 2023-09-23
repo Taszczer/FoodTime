@@ -18,7 +18,7 @@ const SearchBar = () => {
   }
 
   const SearchButton = ({ otherClasses } : { otherClasses: string }) => (
-    <button onClick={fetchFood} type="submit" className={`ml-[-80px] z-10 ${otherClasses}`}>
+    <button type="submit" className={`ml-[-80px] z-10 ${otherClasses}`}>
         <Image
           src='/search.png'
           alt='search'     
