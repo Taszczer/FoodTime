@@ -24,11 +24,15 @@ export default function Home() {
 
         {recipes?.length > 0 ? (
           <>
-            <div>
-
+            <div className='w-full flex-wrap flex gap-10 px-0 lg:px-10 py-10'>
+              {recipes?.map((item, index) => (
+                <RecipeCard recipes={recipes} key={index} />
+              ))}
             </div>
           </>
-        ) : ""}
+        ) : <div className='text-center text-2xl text-orange-600'>
+              <p>No results found</p>
+            </div>}
       </div>
     </main>
   )

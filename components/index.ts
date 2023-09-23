@@ -4,6 +4,7 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 import SearchBar from "./SearchBar";
 import MealList from "./MealList";
+import RecipeCard from "./RecipeCard";
 
 export {
     Hero,
@@ -12,4 +13,5 @@ export {
     Footer,
     SearchBar,
     MealList,
+    RecipeCard,
 }
