@@ -9,7 +9,8 @@ import { fetchFood } from '@/utils'
 const SearchBar = () => {
 
   const [calories, setCalories] = useState("")
-  const [manufacturer, setManufacturer] = useState("")
+  const [query, setQuery] = useState("")
+  const [limit, setLimit] = useState(10)
   
   const handleChange = (e: React.FormEvent<HTMLElement>) => {
     e.preventDefault();
@@ -20,7 +21,7 @@ const SearchBar = () => {
     <button onClick={fetchFood} type="submit" className={`ml-[-80px] z-10 ${otherClasses}`}>
         <Image
           src='/search.png'
-          alt='search'
+          alt='search'     
           width={70}
           height={70}
           className='object-contain'

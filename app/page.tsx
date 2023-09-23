@@ -6,7 +6,8 @@ import { useState } from 'react'
 
 
 export default function Home() {
-
+  
+  const [recipes, setRecipes] = useState([])
 
   return (
     <main className=""> 
@@ -20,6 +21,14 @@ export default function Home() {
         </div>
         <SearchBar
         />
+
+        {recipes?.length > 0 ? (
+          <>
+            <div>
+
+            </div>
+          </>
+        ) : ""}
       </div>
     </main>
   )
