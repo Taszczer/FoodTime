@@ -1,8 +1,15 @@
-import React from 'react'
+import { RecipeCardProps } from '@/types'
 
-const RecipeCard = () => {
+interface ForRecipeCardProps{
+  recipe: RecipeCardProps
+}
+
+const RecipeCard = ({ recipe }: ForRecipeCardProps) => {
+  
+  const { label, image, ingredients, instructions, calories } = recipe?.recipe
+
   return (
-    <div>RecipeCard</div>
+    <div>{label}</div>
   )
 }
 

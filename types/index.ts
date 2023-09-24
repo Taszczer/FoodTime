@@ -24,3 +24,13 @@ export interface FilterProps {
   query: string,
   limit: number
 }
+
+export interface RecipeCardProps {
+  recipe: {
+    label: string;
+    image: string;
+    ingredients: string;
+    instructions: string;
+    calories: number;
+  }
+}

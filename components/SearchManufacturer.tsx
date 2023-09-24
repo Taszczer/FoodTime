@@ -5,8 +5,8 @@ import { SearchManufacturerProps } from '@/types'
 import { foodName } from '@/constants'
 import { Combobox, Transition} from '@headlessui/react'
 
-//any === SearchManufacturerProps
-const SearchManufacturer = ({selected, setSelected}:any) => {
+
+const SearchManufacturer = ({selected, setSelected}:SearchManufacturerProps) => {
   const [query, setQuery] = useState("");
 
   const filteredManufacturers =

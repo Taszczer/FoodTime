@@ -1,7 +1,6 @@
 "use client"
 
-import { Footer, Hero, Navbar, Carousel, SearchBar, RecipeCard } from '@/components'
-import Image from 'next/image'
+import { Footer, Hero, SearchBar, RecipeCard } from '@/components'
 import { useState, useEffect } from 'react'
 import { fetchFood } from '@/utils'
 
@@ -10,7 +9,7 @@ export default function Home() {
   
   const [recipes, setAllRecipes] = useState([])
   const [query, setQuery] = useState("")
-  const [limit, setLimit] = useState(20)
+  const [limit, setLimit] = useState(12)
   const [loading, setLoading] = useState(false)
 
   const fetchRecipes = async () => { 
@@ -45,7 +44,7 @@ export default function Home() {
           <>
             <div className='w-full flex-wrap flex gap-10 px-0 lg:px-10 py-10'>
               {recipes?.map((item, index) => (
-                <RecipeCard recipes={recipes} key={index} />
+                <RecipeCard recipe={item} key={index} />
               ))}
             </div>
           </>
