@@ -6,15 +6,20 @@ import SearchManufacturer from './SearchManufacturer'
 import { useState } from 'react'
 import { fetchFood } from '@/utils'
 
-const SearchBar = () => {
+const SearchBar = ({ setManufacturer }:any) => {
 
-  const [calories, setCalories] = useState("")
   const [query, setQuery] = useState("")
+  const [calories, setCalories] = useState("") 
   const [limit, setLimit] = useState(10)
   
   const handleChange = (e: React.FormEvent<HTMLElement>) => {
     e.preventDefault();
 
+    if (query === "") {
+      return alert("Please fill in the search bar")
+    }
+
+    setManufacturer(query)
   }
 
   const SearchButton = ({ otherClasses } : { otherClasses: string }) => (
@@ -36,7 +41,9 @@ const SearchBar = () => {
     >
         <div className="flex-1 max-sm:w-full flex justify-start items-center relative">
         <SearchManufacturer
-          />  
+          selected={query}
+          setSelected={setQuery}
+        />  
         <SearchButton otherClasses="sm:hidden"/>
         </div>
       <div className="flex-1 max-sm:w-full flex justify-start items-center relative">

@@ -5,7 +5,8 @@ import { SearchManufacturerProps } from '@/types'
 import { foodName } from '@/constants'
 import { Combobox, Transition} from '@headlessui/react'
 
-const SearchManufacturer = () => {
+//any === SearchManufacturerProps
+const SearchManufacturer = ({selected, setSelected}:any) => {
   const [query, setQuery] = useState("");
 
   const filteredManufacturers =
@@ -20,8 +21,7 @@ const SearchManufacturer = () => {
 
   return (
     <div className='flex-1 max-sm:w-full flex justify-start items-center'>
-      {/* <Combobox value={selected} onChange={setSelected}> */}
-      <Combobox >
+      <Combobox value={selected} onChange={setSelected}> 
         <div className='relative w-full'>
          
           <Combobox.Input

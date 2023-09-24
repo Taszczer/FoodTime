@@ -10,7 +10,7 @@ export default function Home() {
   
   const [recipes, setAllRecipes] = useState([])
   const [query, setQuery] = useState("")
-  const [limit, setLimit] = useState(10)
+  const [limit, setLimit] = useState(20)
   const [loading, setLoading] = useState(false)
 
   const fetchRecipes = async () => { 
@@ -23,8 +23,8 @@ export default function Home() {
   }
 
   useEffect(() => { 
-    console.log(query, limit)
     fetchRecipes()
+    console.log(query, limit)
   }, [query, limit])
 
   return (
@@ -38,6 +38,7 @@ export default function Home() {
           </div>
         </div>
         <SearchBar
+          setManufacturer={setQuery}
         />
 
         {recipes?.length > 0 ? (

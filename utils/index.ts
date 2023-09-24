@@ -10,6 +10,6 @@ export async function fetchFood(filter: FilterProps) {
     const response = await fetch(url)
     const result = await response.json()
     console.log(result.hits)
-    return result
+    return result?.hits
   
 }
