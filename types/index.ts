@@ -28,7 +28,7 @@ export interface FilterProps {
 export interface RecipeCardProps {
   recipe: {
     label: string;
-    image: string;
+    image: any;
     ingredients: string;
     instructions: string;
     calories: number;

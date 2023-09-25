@@ -42,7 +42,7 @@ export default function Home() {
 
         {recipes.length > 0 ? (
           <>
-            <div className='w-full flex-wrap flex gap-10 px-0 lg:px-10 py-10'>
+            <div className='w-full flex-wrap flex gap-12 py-10'>
               {recipes?.map((item, index) => (
                 <RecipeCard recipe={item} key={index} />
               ))}
