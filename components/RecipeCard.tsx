@@ -13,13 +13,15 @@ const RecipeCard = ({ recipe }: ForRecipeCardProps) => {
 
   return (
     <>
-      <div className=''>
-        <div className='w-[270px] h-[300px] bg-orange-300 rounded-2xl'>
+      <div className='w-[280px] h-[350px]'>
+        <div className=' rounded-2xl '>
           <img src={image} alt={label} className='rounded-t-2xl object-cover w-full h-[60%]'/>
-          <p className='text-white text-center text-base font-bold p-7'>
+        </div>
+        <div className=' bg-orange-300 h-[120px]'>
+          <p className='text-white text-center text-base font-bold px-6 mt-2'>
             {label}
           </p>
-         {calories < 1000 ? 'malo' : 'duzo'}
+          {calories < 1000 ? 'malo' : 'duzo'}
         </div>
       </div>
     </>
