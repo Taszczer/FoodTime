@@ -42,7 +42,7 @@ export default function Home() {
 
         {recipes.length > 0 ? (
           <>
-            <div className='w-full flex-wrap flex gap-12 py-10'>
+            <div className='w-full flex-wrap flex gap-12 py-10 max-sm:items-center max-sm:justify-center'>
               {recipes?.map((item, index) => (
                 <div className='mt-10'><RecipeCard recipe={item} key={index} isOdd={index % 2 === 0} /></div>
               ))}
