@@ -4,20 +4,22 @@ import { RecipeCardProps } from '@/types'
 import Image from 'next/image'
 
 interface ForRecipeCardProps{
+  isOdd:boolean
   recipe: RecipeCardProps
 }
 
-const RecipeCard = ({ recipe }: ForRecipeCardProps) => {
-  
-  const { label, image, ingredients, instructions, calories } = recipe?.recipe
+const RecipeCard = ({ recipe, isOdd }: ForRecipeCardProps) => {
+  const { label, image, ingredients, instructions, calories } = recipe?.recipe;
+
+  const cardBackgroundColor = isOdd ? "bg-orange-300" : "bg-orange-400"
 
   return (
     <>
       <div className='w-[280px] h-[350px]'>
-        <div className=' rounded-2xl '>
-          <img src={image} alt={label} className='rounded-t-2xl object-cover w-full h-[60%]'/>
+        <div className=''>
+          <img src={image} alt={label} className='rounded-t-2xl object-contain min-w-full min-h-full w-full h-[60%]'/>
         </div>
-        <div className=' bg-orange-300 h-[120px]'>
+        <div className={` ${cardBackgroundColor} h-[120px] rounded-b-2xl`}>
           <p className='text-white text-center text-base font-bold px-6 mt-2'>
             {label}
           </p>
@@ -25,7 +27,6 @@ const RecipeCard = ({ recipe }: ForRecipeCardProps) => {
         </div>
       </div>
     </>
-    
   )
 }
 

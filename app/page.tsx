@@ -44,7 +44,7 @@ export default function Home() {
           <>
             <div className='w-full flex-wrap flex gap-12 py-10'>
               {recipes?.map((item, index) => (
-                <div className='mt-10'><RecipeCard recipe={item} key={index} /></div>
+                <div className='mt-10'><RecipeCard recipe={item} key={index} isOdd={index % 2 === 0} /></div>
               ))}
             </div>
           </>
