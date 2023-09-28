@@ -9,6 +9,11 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        'croissant-one': ['Croissant One', 'sans-serif'],
+        'dm-sans': ['DM Sans', 'sans-serif'],
+        'montserrat': ['Montserrat', 'sans-serif'],
+      },
       keyframes: {
         wiggle: {
           '0%': { position: 'absolute',},
