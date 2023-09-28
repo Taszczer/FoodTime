@@ -3,6 +3,7 @@
 import { Footer, Hero, SearchBar, RecipeCard } from '@/components'
 import { useState, useEffect } from 'react'
 import { fetchFood } from '@/utils'
+import {Tilt} from 'react-tilt'
 
 
 export default function Home() {
@@ -44,7 +45,11 @@ export default function Home() {
           <>
             <div className='w-full flex-wrap flex gap-12 py-10 max-sm:items-center max-sm:justify-center'>
               {recipes?.map((item, index) => (
-                <div className='mt-10'><RecipeCard recipe={item} key={index} isOdd={index % 2 === 0} /></div>
+                <Tilt>
+                  <div className='mt-12'>
+                    <RecipeCard recipe={item} key={index} isOdd={index % 2 === 0} />
+                  </div>
+                </Tilt>
               ))}
             </div>
           </>
