@@ -13,3 +13,5 @@ export async function fetchFood(filter: FilterProps) {
     return result?.hits
   
 }
+
+

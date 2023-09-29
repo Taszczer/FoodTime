@@ -30,7 +30,7 @@ export interface RecipeCardProps {
     label: string;
     image: any;
     ingredients: string;
-    instructions: string;
+    dietLabels: string;
     calories: number;
   }
 }

@@ -46,8 +46,8 @@ export default function Home() {
             <div className='w-full flex-wrap flex gap-12 py-10 max-sm:items-center max-sm:justify-center'>
               {recipes?.map((item, index) => (
                 <Tilt>
-                  <div className='mt-12 cursor-pointer'>
-                    <RecipeCard recipe={item} key={index} isOdd={index % 2 === 0} />
+                  <div className='mt-16 cursor-pointer'>
+                    <RecipeCard recipe={item} skey={index} isOdd={index % 2 === 0} />
                   </div>
                 </Tilt>
               ))}
