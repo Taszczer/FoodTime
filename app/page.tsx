@@ -12,13 +12,14 @@ export default function Home() {
   const [recipes, setAllRecipes] = useState([])
   const [query, setQuery] = useState("")
   const [limit, setLimit] = useState(12)
+  const [hasMoreRecipes, setHasMoreRecipes] = useState(true)
   const [loading, setLoading] = useState(false)
-
-  const isDataEmpty = !Array.isArray(recipes) || recipes.length < 1 || !recipes
 
   const fetchRecipes = async () => { 
     try {
       const recipes = await fetchFood({ query: query || "", limit })
+      
+      setHasMoreRecipes(recipes.length === limit)
       setAllRecipes(recipes)
     } catch (error) { 
       console.log(error)
@@ -57,11 +58,13 @@ export default function Home() {
               ))}
             </div>
             <br />
-            <ShowMore
-              pageNumber={limit / 10}
-              isNext={limit > recipes.length}
-              setLimit={setLimit}
-            />
+            {hasMoreRecipes && (
+              <ShowMore
+                pageNumber={limit / 10}
+                isNext={limit > recipes.length}
+                setLimit={setLimit}
+              />
+            )}
           </>
         ): ""}
       </div>

@@ -11,7 +11,7 @@ interface ForRecipeCardProps {
 }
 
 const RecipeCard = ({ recipe, skey, isOdd }: ForRecipeCardProps) => {
-  const { label, image, ingredients, dietLabels, calories } = recipe?.recipe;
+  const { label, image, calories } = recipe?.recipe;
 
   const cardBackgroundColor = isOdd ? 'bg-orange-300' : 'bg-orange-400'
   const smallCardBackgroundColor = isOdd ? 'bg-orange-400' : 'bg-orange-300'
@@ -41,7 +41,7 @@ const RecipeCard = ({ recipe, skey, isOdd }: ForRecipeCardProps) => {
         <div className=''>
           <img src={image} alt={label} className='rounded-t-2xl object-contain min-w-full min-h-full w-full h-[60%]' />
         </div>
-        <div className={` ${cardBackgroundColor} h-[120px] rounded-b-2xl mt-2 flex flex-col justify-between`}>
+        <div className={` ${cardBackgroundColor} h-[120px] rounded-b-2xl mt-2 max-mt-2 flex flex-col justify-between`}>
           <p className='text-white font-croissant-one text-center text-base px-6 mt-2 pt-2 max-h-[83px] overflow-y-hidden'>
             {label}
           </p>

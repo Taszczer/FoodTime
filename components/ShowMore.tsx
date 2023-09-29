@@ -1,6 +1,8 @@
 "use client"
 
-const ShowMore = ({pageNumber, isNext, setLimit}:any) => {
+import { ShowMoreProps } from "@/types"
+
+const ShowMore = ({pageNumber, isNext, setLimit}:ShowMoreProps) => {
   
     const handleNavigation = () => {
         const newLimit = (pageNumber + 1) * 10

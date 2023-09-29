@@ -1,17 +1,17 @@
 import { NextApiRequest, NextApiResponse } from "next"
 
 export interface ButtonProps {
-  onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  onClick: (event: React.MouseEvent<HTMLButtonElement>) => void
 }
   
 export interface Background {
-  id: number,
-  title: string, 
-  butOn: string,
-  colorForBt: string,
-  product: string,
+  id: number
+  title: string
+  butOn: string
+  colorForBt: string
+  product: string
   imageUrl: string
-  colors: string,
+  colors: string
   backImage:string
 }
 
@@ -21,16 +21,22 @@ export interface SearchManufacturerProps {
 }
 
 export interface FilterProps {
-  query: string,
+  query: string
   limit: number
 }
 
 export interface RecipeCardProps {
   recipe: {
-    label: string;
-    image: any;
-    ingredients: string;
-    dietLabels: string;
-    calories: number;
+    label: string
+    image: any
+    ingredients: string
+    dietLabels: string
+    calories: number
   }
+}
+
+export interface ShowMoreProps {
+  pageNumber: number
+  isNext: boolean
+  setLimit: any
 }
