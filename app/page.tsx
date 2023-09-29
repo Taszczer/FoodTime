@@ -66,7 +66,11 @@ export default function Home() {
               />
             )}
           </>
-        ): ""}
+        ) : (<>
+            <h3 className='flex justify-center items-center text-[40px] text-orange-400 font-croissant-one'>
+              Write what you are looking for
+            </h3>
+        </>)}
       </div>
     </main>
   )
