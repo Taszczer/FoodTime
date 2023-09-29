@@ -1,9 +1,10 @@
 "use client"
 
-import { Footer, Hero, SearchBar, RecipeCard } from '@/components'
+import { Footer, Hero, SearchBar, RecipeCard, ShowMore } from '@/components'
 import { useState, useEffect } from 'react'
 import { fetchFood } from '@/utils'
 import {Tilt} from 'react-tilt'
+
 
 
 export default function Home() {
@@ -12,6 +13,8 @@ export default function Home() {
   const [query, setQuery] = useState("")
   const [limit, setLimit] = useState(12)
   const [loading, setLoading] = useState(false)
+
+  const isDataEmpty = !Array.isArray(recipes) || recipes.length < 1 || !recipes
 
   const fetchRecipes = async () => { 
     try {
@@ -40,22 +43,27 @@ export default function Home() {
         <SearchBar
           setManufacturer={setQuery}
         />
-
         {recipes.length > 0 ? (
           <>
             <div className='w-full flex-wrap flex gap-12 py-10 max-sm:items-center max-sm:justify-center'>
               {recipes?.map((item, index) => (
-                <Tilt>
-                  <div className='mt-16 cursor-pointer'>
-                    <RecipeCard recipe={item} skey={index} isOdd={index % 2 === 0} />
-                  </div>
-                </Tilt>
+                <>
+                  <Tilt>
+                    <div className='mt-16 cursor-pointer'>
+                      <RecipeCard recipe={item} skey={index} isOdd={index % 2 === 0} />
+                    </div>
+                  </Tilt>
+                </>
               ))}
             </div>
+            <br />
+            <ShowMore
+              pageNumber={limit / 10}
+              isNext={limit > recipes.length}
+              setLimit={setLimit}
+            />
           </>
-        ) : <div className='text-center text-2xl text-orange-600'>
-              <p>No results found</p>
-            </div>}
+        ): ""}
       </div>
     </main>
   )
