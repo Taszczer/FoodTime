@@ -5,8 +5,8 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 
 interface ForRecipeCardProps {
-  isOdd: boolean;
-  recipe: RecipeCardProps;
+  isOdd: boolean
+  recipe: RecipeCardProps
   skey:number
 }
 
@@ -19,14 +19,14 @@ const RecipeCard = ({ recipe, skey, isOdd }: ForRecipeCardProps) => {
   const animationVariants = {
     initial: { opacity: 0, x: -100 },
     animate: { opacity: 1, x: 0 },
-  };
+  }
 
   const animationTransition = {
     type: 'spring',
     stiffness: 260,
     damping: 20,
     delay: skey * 0.1,  
-  };
+  }
 
   return (
     <>
@@ -39,7 +39,7 @@ const RecipeCard = ({ recipe, skey, isOdd }: ForRecipeCardProps) => {
         className='w-[290px] h-[350px]' 
       >
         <div className=''>
-          <img src={image} alt={label} className='rounded-t-2xl object-contain min-w-full min-h-full w-full h-[60%]' />
+          <Image src={image} alt={label} width={200} height={450} className='rounded-t-2xl object-contain min-w-full min-h-full w-full h-[60%]' />
         </div>
         <div className={` ${cardBackgroundColor} h-[120px] rounded-b-2xl mt-2 max-mt-2 flex flex-col justify-between`}>
           <p className='text-white font-croissant-one text-center text-base px-6 mt-2 pt-2 max-h-[83px] overflow-y-hidden'>
@@ -63,3 +63,4 @@ const RecipeCard = ({ recipe, skey, isOdd }: ForRecipeCardProps) => {
 };
 
 export default RecipeCard;
+   

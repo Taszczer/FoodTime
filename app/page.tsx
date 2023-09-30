@@ -4,6 +4,7 @@ import { Footer, Hero, SearchBar, RecipeCard, ShowMore } from '@/components'
 import { useState, useEffect } from 'react'
 import { fetchFood } from '@/utils'
 import {Tilt} from 'react-tilt'
+import Image from 'next/image'
 
 
 
@@ -16,6 +17,7 @@ export default function Home() {
   const [loading, setLoading] = useState(false)
 
   const fetchRecipes = async () => { 
+    setLoading(true)
     try {
       const recipes = await fetchFood({ query: query || "", limit })
       
@@ -23,6 +25,8 @@ export default function Home() {
       setAllRecipes(recipes)
     } catch (error) { 
       console.log(error)
+    } finally {
+      setLoading(false)
     }
   }
 
@@ -57,6 +61,13 @@ export default function Home() {
                 </>
               ))}
             </div>
+
+            {loading && (
+              <div className='w-full flex justify-center items-center mt-20 '>
+                <h1 className='text-orange-300 font-croissant-one text-[44px]'>Wait a second</h1>
+              </div>
+            )}
+
             <br />
             {hasMoreRecipes && (
               <ShowMore
