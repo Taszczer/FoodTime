@@ -12,6 +12,7 @@ export default function Home() {
   
   const [recipes, setAllRecipes] = useState([])
   const [query, setQuery] = useState("")
+  const [calories, setCalories] = useState(null)
   const [limit, setLimit] = useState(12)
   const [hasMoreRecipes, setHasMoreRecipes] = useState(true)
   const [loading, setLoading] = useState(false)
@@ -19,7 +20,7 @@ export default function Home() {
   const fetchRecipes = async () => { 
     setLoading(true)
     try {
-      const recipes = await fetchFood({ query: query || "", limit })
+      const recipes = await fetchFood({ query: query || "", limit, calories: calories || null })
       
       setHasMoreRecipes(recipes.length === limit)
       setAllRecipes(recipes)
@@ -32,8 +33,8 @@ export default function Home() {
 
   useEffect(() => { 
     fetchRecipes()
-    console.log(query, limit)
-  }, [query, limit])
+    console.log(query, calories, limit)
+  }, [query, calories, limit])
 
   return (
     <main className=""> 
@@ -47,6 +48,7 @@ export default function Home() {
         </div>
         <SearchBar
           setManufacturer={setQuery}
+          setCaloriesManufacturer={setCalories}
         />
         {recipes.length > 0 ? (
           <>

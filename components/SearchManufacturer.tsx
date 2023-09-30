@@ -25,7 +25,7 @@ const SearchManufacturer = ({selected, setSelected}:SearchManufacturerProps) => 
         <div className='relative w-full'>
          
           <Combobox.Input
-            className='w-full text-white font-medium text-base h-[48px] pl-12 p-4 rounded-l-full max-sm:rounded-full bg-light-white outline-none cursor-pointer placeholder:text-white bg-orange-300'
+            className='sm:w-[120%] max-sm:w-full text-white font-medium text-base h-[48px] pl-12 p-4 rounded-full bg-light-white outline-none cursor-pointer placeholder:text-white bg-orange-300'
             displayValue={(item: string) => item}
             onChange={(event) => setQuery(event.target.value)} // Update the search query when the input changes
             placeholder='Search Food...'
