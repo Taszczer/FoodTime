@@ -41,3 +41,14 @@ export interface ShowMoreProps {
   isNext: boolean
   setLimit: any
 }
+
+export interface OptionProps {
+  title: string
+  value: string
+}
+
+export interface CustomFilterProps {
+  title: string
+  options: OptionProps[]
+  setFilter: any
+}

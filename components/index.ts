@@ -6,6 +6,7 @@ import SearchBar from "./SearchBar";
 import MealList from "./MealList";
 import RecipeCard from "./RecipeCard";
 import ShowMore from "./ShowMore";
+import CustomFilter from "./CustomFilter";
 
 export {
     Hero,
@@ -16,4 +17,5 @@ export {
     MealList,
     RecipeCard,
     ShowMore,
+    CustomFilter,
 }
