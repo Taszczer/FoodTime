@@ -1,10 +1,11 @@
 "use client"
 
-import { Footer, Hero, SearchBar, RecipeCard, ShowMore } from '@/components'
+import { Footer, Hero, SearchBar, RecipeCard, ShowMore, CustomFilter } from '@/components'
 import { useState, useEffect } from 'react'
 import { fetchFood } from '@/utils'
 import {Tilt} from 'react-tilt'
 import Image from 'next/image'
+import { forButtonCalories } from '@/constants'
 
 
 
@@ -12,7 +13,7 @@ export default function Home() {
   
   const [recipes, setAllRecipes] = useState([])
   const [query, setQuery] = useState("")
-  const [calories, setCalories] = useState(null)
+  const [calories, setCalories] = useState("")
   const [limit, setLimit] = useState(12)
   const [hasMoreRecipes, setHasMoreRecipes] = useState(true)
   const [loading, setLoading] = useState(false)
@@ -20,7 +21,11 @@ export default function Home() {
   const fetchRecipes = async () => { 
     setLoading(true)
     try {
-      const recipes = await fetchFood({ query: query || "", limit, calories: calories || null })
+      const recipes = await fetchFood({
+        query: query || "",
+        limit,
+        calories: calories || ""
+      })
       
       setHasMoreRecipes(recipes.length === limit)
       setAllRecipes(recipes)
@@ -33,8 +38,8 @@ export default function Home() {
 
   useEffect(() => { 
     fetchRecipes()
-    console.log(query, calories, limit)
-  }, [query, calories, limit])
+    console.log(query, limit)
+  }, [query, limit])
 
   return (
     <main className=""> 
@@ -46,10 +51,14 @@ export default function Home() {
             <p className='font-bold text-orange-300 text-2xl'>Order and enjoy</p>
           </div>
         </div>
-        <SearchBar
-          setManufacturer={setQuery}
-          setCaloriesManufacturer={setCalories}
-        />
+        <div className='flex justify-between'>
+          <SearchBar
+            setManufacturer={setQuery}
+          />
+          <div>
+            <CustomFilter title='calories' options={forButtonCalories} setFilter={setCalories}/>
+          </div>
+        </div>  
         {recipes.length > 0 ? (
           <>
             <div className='w-full flex-wrap flex gap-12 py-10 max-sm:items-center max-sm:justify-center'>

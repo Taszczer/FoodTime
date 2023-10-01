@@ -50,6 +50,25 @@ export const foodName = [
   "Breakfast Sandwich",
   "Buffalo Wings",
 ]
+
+export const forButtonCalories = [
+  {
+    title: "< 1500 cal",
+    value: "< 1500 cal"
+  },
+  {
+    title: "< 3000 cal",
+    value: "< 3000 cal"
+  },
+  {
+    title: "< 5000 cal",
+    value: "< 5000 cal"
+  },
+  {
+    title: "5000 cal >",
+    value: "5000 cal >"
+  }
+]
   
 export const footerLinks = [
     {

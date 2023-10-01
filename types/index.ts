@@ -23,7 +23,7 @@ export interface SearchManufacturerProps {
 export interface FilterProps {
   query: string
   limit: number
-  calories: number | null
+  calories: any
 }
 
 export interface RecipeCardProps {

@@ -6,7 +6,7 @@ import SearchManufacturer from './SearchManufacturer'
 import { useState } from 'react'
 import { fetchFood } from '@/utils'
 
-const SearchBar = ({ setManufacturer, setCaloriesManufacturer }:any) => {
+const SearchBar = ({ setManufacturer }:any) => {
 
   const [query, setQuery] = useState("")
   const [calories, setCalories] = useState("") 
@@ -24,7 +24,6 @@ const SearchBar = ({ setManufacturer, setCaloriesManufacturer }:any) => {
     }
 
     setManufacturer(query)
-    setCaloriesManufacturer(changedCalories)
   }
 
   const SearchButton = ({ otherClasses } : { otherClasses: string }) => (
