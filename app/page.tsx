@@ -55,13 +55,13 @@ export default function Home() {
           <SearchBar
             setManufacturer={setQuery}
           />
-          <div>
+          <div className=''>
             <CustomFilter title='calories' options={forButtonCalories} setFilter={setCalories}/>
           </div>
         </div>  
         {recipes.length > 0 ? (
           <>
-            <div className='w-full flex-wrap flex gap-12 py-10 max-sm:items-center max-sm:justify-center'>
+            <div className='w-full flex-wrap flex sm:items-center max-md:justify-center gap-12 py-10 max-sm:items-center max-sm:justify-center'>
               {recipes?.map((item, index) => (
                 <>
                   <Tilt>
