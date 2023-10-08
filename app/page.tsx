@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react'
 import { fetchFood } from '@/utils'
 import {Tilt} from 'react-tilt'
 import Image from 'next/image'
-import { forButtonCalories } from '@/constants'
+import { forButtonDiet } from '@/constants'
 
 
 
@@ -13,7 +13,7 @@ export default function Home() {
   
   const [recipes, setAllRecipes] = useState([])
   const [query, setQuery] = useState("")
-  const [calories, setCalories] = useState("")
+  const [diet, setDiet] = useState("")
   const [limit, setLimit] = useState(12)
   const [hasMoreRecipes, setHasMoreRecipes] = useState(true)
   const [loading, setLoading] = useState(false)
@@ -24,7 +24,7 @@ export default function Home() {
       const recipes = await fetchFood({
         query: query || "",
         limit,
-        calories: calories || ""
+        diet: diet || ""
       })
       
       setHasMoreRecipes(recipes.length === limit)
@@ -38,8 +38,8 @@ export default function Home() {
 
   useEffect(() => { 
     fetchRecipes()
-    console.log(query, limit)
-  }, [query, limit])
+    console.log(query, limit, diet)
+  }, [query, limit, diet])
 
   return (
     <main className=""> 
@@ -56,7 +56,11 @@ export default function Home() {
             setManufacturer={setQuery}
           />
           <div className=''>
-            <CustomFilter title='calories' options={forButtonCalories} setFilter={setCalories}/>
+            <CustomFilter
+                title='diet'
+                options={forButtonDiet.map(option => ({ title: option.title, value: option.value }))}
+                setFilter={setDiet}
+            />
           </div>
         </div>  
         {recipes.length > 0 ? (

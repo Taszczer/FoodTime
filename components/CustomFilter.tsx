@@ -17,7 +17,7 @@ const CustomFilter = ({title, options, setFilter}: CustomFilterProps) => {
         }}
       >
         <div className='relative w-fit z-10'>
-          <Listbox.Button className="flex p-3 items-center justify-center w-[160px] h-[48px] mt-6  bg-orange-300 text-white font-croissant-one rounded-2xl">
+          <Listbox.Button className="flex p-3 items-center justify-center w-[190px] h-[48px] mt-6  bg-orange-300 text-white font-croissant-one rounded-2xl">
             <span className='block truncate'>{selected.title}</span>
             <Image
               src='/chevron-up-down.png'

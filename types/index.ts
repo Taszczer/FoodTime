@@ -23,7 +23,7 @@ export interface SearchManufacturerProps {
 export interface FilterProps {
   query: string
   limit: number
-  calories: any
+  diet: string
 }
 
 export interface RecipeCardProps {
@@ -49,6 +49,6 @@ export interface OptionProps {
 
 export interface CustomFilterProps {
   title: string
-  options: OptionProps[]
+  options: OptionProps[] 
   setFilter: any
 }

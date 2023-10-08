@@ -51,22 +51,30 @@ export const foodName = [
   "Buffalo Wings",
 ]
 
-export const forButtonCalories = [
+export const forButtonDiet = [
   {
-    title: "< 1500 cal",
-    value: "< 1500 cal"
+    title: "balanced",
+    value: "balanced"
   },
   {
-    title: "< 3000 cal",
-    value: "< 3000 cal"
+    title: "high-fiber",
+    value: "high-fiber"
   },
   {
-    title: "< 5000 cal",
-    value: "< 5000 cal"
+    title: "high-protein",
+    value: "high-protein"
   },
   {
-    title: "5000 cal >",
-    value: "5000 cal >"
+    title: "low-carb",
+    value: "low-carb"
+  },
+  {
+    title: "low-fat",
+    value: "low-fat"
+  },
+  {
+    title: "low-sodium",
+    value: "low-sodium"
   }
 ]
   
