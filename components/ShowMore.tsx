@@ -15,7 +15,7 @@ const ShowMore = ({pageNumber, isNext, setLimit}:ShowMoreProps) => {
             {!isNext && (
                 <button
                     onClick={handleNavigation}
-                    className="bg-orange-300 rounded-xl text-white w-[200px] h-[50px]"
+                    className="bg-orange-300 text-xl font-bold rounded-xl text-white w-[200px] h-[50px]"
                 >
                     Show more
                 </button>

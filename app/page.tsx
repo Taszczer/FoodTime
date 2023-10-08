@@ -6,8 +6,7 @@ import { fetchFood } from '@/utils'
 import {Tilt} from 'react-tilt'
 import Image from 'next/image'
 import { forButtonDiet } from '@/constants'
-
-
+import { forButtonLunch } from '@/constants'
 
 export default function Home() {
   
@@ -55,13 +54,12 @@ export default function Home() {
           <SearchBar
             setManufacturer={setQuery}
           />
-          <div className=''>
-            <CustomFilter
-                title='diet'
-                options={forButtonDiet.map(option => ({ title: option.title, value: option.value }))}
-                setFilter={setDiet}
-            />
-          </div>
+
+          <CustomFilter
+              title='diet'
+              options={forButtonDiet}
+              setFilter={setDiet}
+          />
         </div>  
         {recipes.length > 0 ? (
           <>
