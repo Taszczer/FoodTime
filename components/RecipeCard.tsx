@@ -3,6 +3,8 @@
 import { RecipeCardProps } from '@/types'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
+import { ShowRecipe } from '.'
+import { useState } from 'react'
 
 interface ForRecipeCardProps {
   isOdd: boolean
@@ -11,7 +13,8 @@ interface ForRecipeCardProps {
 }
 
 const RecipeCard = ({ recipe, skey, isOdd }: ForRecipeCardProps) => {
-  const { label, image, calories } = recipe?.recipe;
+  const { label, image, calories } = recipe?.recipe
+  const [isOpen, setIsOpen] = useState(false)
 
   const cardBackgroundColor = isOdd ? 'bg-orange-300' : 'bg-orange-400'
   const smallCardBackgroundColor = isOdd ? 'bg-orange-400' : 'bg-orange-300'
@@ -58,6 +61,11 @@ const RecipeCard = ({ recipe, skey, isOdd }: ForRecipeCardProps) => {
           </div>
         </div>
       </motion.div>
+      <ShowRecipe
+        isOpen={isOpen}
+        closeModal={() => setIsOpen(false)}
+        recipe={recipe}
+      />
     </>
   );
 };

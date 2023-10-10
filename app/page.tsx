@@ -7,6 +7,7 @@ import {Tilt} from 'react-tilt'
 import Image from 'next/image'
 import { forButtonDiet } from '@/constants'
 import { forButtonLunch } from '@/constants'
+import Link from 'next/link'
 
 export default function Home() {
   
@@ -68,7 +69,7 @@ export default function Home() {
                 <>
                   <Tilt>
                     <div className='mt-16 cursor-pointer'>
-                      <RecipeCard recipe={item} skey={index} isOdd={index % 2 === 0} />
+                        <RecipeCard recipe={item} skey={index} isOdd={index % 2 === 0} />
                     </div>
                   </Tilt>
                 </>
@@ -92,7 +93,7 @@ export default function Home() {
           </>
         ) : (<>
             <h3 className='flex justify-center items-center text-[40px] text-orange-400 font-croissant-one'>
-              Write what you are looking for
+              There is nothing
             </h3>
         </>)}
       </div>
