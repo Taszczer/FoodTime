@@ -62,7 +62,7 @@ const RecipeCard = ({ recipe, skey, isOdd }: ForRecipeCardProps) => {
         </div>
       </motion.div>
       <ShowRecipe
-        isOpen={isOpen}
+        isOpen={false}
         closeModal={() => setIsOpen(false)}
         recipe={recipe}
       />

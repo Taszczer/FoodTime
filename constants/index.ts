@@ -53,6 +53,10 @@ export const foodName = [
 
 export const forButtonDiet = [
   {
+    title:"none",
+    value:"none"
+  },
+  {
     title: "balanced",
     value: "balanced"
   },
@@ -75,29 +79,6 @@ export const forButtonDiet = [
   {
     title: "low-sodium",
     value: "low-sodium"
-  }
-]
-
-export const forButtonLunch = [
-  {
-    title:"breakfast",
-    value:"breakfast"
-  },
-  {
-    title:"brunch",
-    value:"brunch"
-  },
-  {
-    title:"lunch/dinner",
-    value:"lunch/dinner"
-  },
-  {
-    title:"snack",
-    value:"snack"
-  },
-  {
-    title:"teatime",
-    value:"teatime"
   }
 ]
 

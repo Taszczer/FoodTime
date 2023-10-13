@@ -69,7 +69,7 @@ const SearchManufacturer = ({selected, setSelected}:SearchManufacturerProps) => 
 
                         
                         {selected ? (
-                          <span className={`absolute inset-y-0 left-0 flex items-center pl-3 ${active? "text-white": "text-pribg-primary-purple"}`}
+                          <span className={`absolute inset-y-0 left-0 flex items-center pl-3 ${active? "text-white": "text-orange-200"}`}
                           ></span>
                         ) : null}
                       </>

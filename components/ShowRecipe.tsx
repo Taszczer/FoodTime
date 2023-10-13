@@ -12,6 +12,7 @@ interface RecipeDetailsProps {
 }
 
 const ShowRecipe = ({isOpen, closeModal, recipe}:RecipeDetailsProps) => {
+    
   return (
       <>
           <Transition

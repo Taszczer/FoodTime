@@ -6,7 +6,6 @@ import { fetchFood } from '@/utils'
 import {Tilt} from 'react-tilt'
 import Image from 'next/image'
 import { forButtonDiet } from '@/constants'
-import { forButtonLunch } from '@/constants'
 import Link from 'next/link'
 
 export default function Home() {
@@ -48,7 +47,7 @@ export default function Home() {
         <div className='flex items-center justify-between'>
           <div className='flex flex-col items-start justify-start gap-y-2.5 text-black-100'>
             <h1 className='text-orange-400 text-4xl font-extrabold'>Food catalog</h1>
-            <p className='font-bold text-orange-300 text-2xl'>Order and enjoy</p>
+            <p className='font-bold text-orange-300 text-2xl'>Chose food then the diet</p>
           </div>
         </div>
         <div className='flex justify-between'>
