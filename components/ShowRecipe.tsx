@@ -13,6 +13,8 @@ interface RecipeDetailsProps {
 
 const ShowRecipe = ({isOpen, closeModal, recipe}:RecipeDetailsProps) => {
     
+    const { label, calories, image } = recipe.recipe
+
   return (
       <>
           <Transition
@@ -37,8 +39,8 @@ const ShowRecipe = ({isOpen, closeModal, recipe}:RecipeDetailsProps) => {
                     <div className='fixed inset-0 bg-black bg-opacity-25' />
                   </Transition.Child>
                   
-                  <div className='fixed inset-0 overflow-y-auto'>
-                      <div className='flex min-h-full items-center justify-center p-4 text-center'>
+                  <div className='fixed inset-0 h-screen'>
+                      <div className=''>
                           <Transition.Child
                               as={Fragment}
                               enter='easy-out duration-300'
@@ -48,30 +50,55 @@ const ShowRecipe = ({isOpen, closeModal, recipe}:RecipeDetailsProps) => {
                               leaveFrom='opacity-100 scale-100'
                               leaveTo='opacity-0 scale-95'
                           >
-                              <Dialog.Panel className='relative w-full max-w-lg max-h-[90vh] overflow-y-auto transform
-                              rounded-2xl bg-white p-6 text-left transition-all flex flex-col gap-5'>
-                                  <button
+                              <Dialog.Panel className='w-full flex flex-row items-center justify-between bg-white px-10 min-h-screen'>
+                                  <div className=''>
+                                        <Image
+                                          src={image}
+                                          alt='image z-20'
+                                          width={600}
+                                          height={600}
+                                        />
+                                  </div>
+                                  <div className=''>
+                                    <button
+                                        type='button'
+                                        className='flex justify-end'
+                                        onClick={closeModal}
+                                    >
+                                        <Image
+                                            src='/cancel.png'
+                                            alt='close'
+                                            width={50}
+                                            height={50}
+                                        />
+                                      </button>
+                                      <p>kadfklajk</p>
+                                      <h1>ajdkfjafjlka</h1>
+                                  </div>
+                                  {/* <button
                                       type='button'
-                                      className='absolute top-2 right-2 z-10 w-fit p-2 bg-primary-orange-100 rounded-full '
+                                      className='flex items-center justify-end'
                                       onClick={closeModal}
                                   >
-                                      -+-
+                                      <Image
+                                          src='/cancel.png'
+                                          alt='close'
+                                          width={50}
+                                          height={50}
+                                      />
                                   </button>
                                   
-                                  <div className="flex-1 flex flex-col gap-2">
-                                        <h2 className="font-semibold text-xl capitalize">
-                                        fsfsjf
-                                        </h2>
-
-                                        <div className="mt-3 flex flex-wrap gap-4">
-                                        {Object.entries(recipe).map(([key, value]) => (
-                                            <div className="flex justify-between gap-5 w-full text-right" key={key}>
-                                            <h4 className="text-gray capitalize">{key.split("_").join(" ")}</h4>
-                                            <p className="text-black-100 font-semibold">{value}</p>
-                                            </div>
-                                        ))}
+                                  <div className="">
+                                    <h2 className="">
+                                        {label} 
+                                    </h2>
+                                    <div className="">
+                                        <div className="">
+                                            <h4 className="">Calories</h4>
+                                            <p className="">{calories.toFixed(2)}</p>
                                         </div>
                                     </div>
+                                  </div> */}
                               </Dialog.Panel>
                           </Transition.Child>
                       </div>

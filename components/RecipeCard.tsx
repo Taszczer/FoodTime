@@ -33,6 +33,13 @@ const RecipeCard = ({ recipe, skey, isOdd }: ForRecipeCardProps) => {
 
   return (
     <>
+      <button
+        title='View more'
+        className='flex'
+        onClick={() => {
+          setIsOpen(true)
+        }}
+      >
       <motion.div
         initial='initial'
         animate='animate'
@@ -55,17 +62,15 @@ const RecipeCard = ({ recipe, skey, isOdd }: ForRecipeCardProps) => {
                 {calories.toFixed(2)}
               </p>
             </div>
-            <button className='flex'>
-              <h3 className='text-white flex justify-center items-center text-20px font-croissant-one'>Clik me:)</h3>
-            </button>
           </div>
         </div>
       </motion.div>
       <ShowRecipe
-        isOpen={false}
+        isOpen={isOpen}
         closeModal={() => setIsOpen(false)}
         recipe={recipe}
       />
+      </button>
     </>
   );
 };
