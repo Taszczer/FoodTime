@@ -13,7 +13,7 @@ interface RecipeDetailsProps {
 
 const ShowRecipe = ({isOpen, closeModal, recipe}:RecipeDetailsProps) => {
     
-    const { label, calories, image } = recipe.recipe
+    const { label, calories, image, ingredients, dietLabels, cautions} = recipe.recipe
 
   return (
       <>
@@ -50,19 +50,19 @@ const ShowRecipe = ({isOpen, closeModal, recipe}:RecipeDetailsProps) => {
                               leaveFrom='opacity-100 scale-100'
                               leaveTo='opacity-0 scale-95'
                           >
-                              <Dialog.Panel className='w-full flex flex-row items-center justify-between bg-white px-10 min-h-screen'>
-                                  <div className=''>
+                              <Dialog.Panel className='flex xl:flex-row flex-col gap-5 relative z-0 w-full bg-white px-10 py-8 min-h-screen'>
+                                  <div className='flex items-center justify-end'>
                                         <Image
                                           src={image}
-                                          alt='image z-20'
-                                          width={600}
-                                          height={600}
+                                          alt='image'
+                                          width={800}
+                                          height={800}
                                         />
                                   </div>
-                                  <div className=''>
-                                    <button
+                                  <div className='w-full '>
+                                  <button
                                         type='button'
-                                        className='flex justify-end'
+                                        className='xl:flex-[1.5] flex justify-end w-full'
                                         onClick={closeModal}
                                     >
                                         <Image
@@ -72,33 +72,32 @@ const ShowRecipe = ({isOpen, closeModal, recipe}:RecipeDetailsProps) => {
                                             height={50}
                                         />
                                       </button>
-                                      <p>kadfklajk</p>
-                                      <h1>ajdkfjafjlka</h1>
-                                  </div>
-                                  {/* <button
-                                      type='button'
-                                      className='flex items-center justify-end'
-                                      onClick={closeModal}
-                                  >
-                                      <Image
-                                          src='/cancel.png'
-                                          alt='close'
-                                          width={50}
-                                          height={50}
-                                      />
-                                  </button>
-                                  
-                                  <div className="">
-                                    <h2 className="">
-                                        {label} 
-                                    </h2>
-                                    <div className="">
-                                        <div className="">
-                                            <h4 className="">Calories</h4>
-                                            <p className="">{calories.toFixed(2)}</p>
+                                      <div className='flex justify-end pt-12 pr-[80px]'>
+                                        <div className='text-right w-full'>
+                                            <h1 className='font-croissant-one text-3xl text-orange-400'>{label}</h1>
+                                            <ul className=' font-montserrat text-base text-orange-300 mt-6'>
+                                                {ingredients.map((ingredient, index) => (
+                                                    <li key={index}>{ingredient.text }</li>
+                                                ))}
+                                              </ul>
+                                              <div className='flex justify-end items-center w-full gap-5 mt-5'>
+                                                  <div className='bg-orange-300 h-[35px] px-7 w-fit p-1 rounded-2xl mt-3'>
+                                                    <p className='text-white text-center text-base font-montserrat'>{dietLabels.join(' and ')}</p>
+                                                  </div>
+                                                  <div className='bg-orange-400 h-[35px] px-7 w-fit p-1 rounded-2xl mt-3'>
+                                                    <p className='text-white text-center text-base font-montserrat'>{calories.toFixed(2)}</p>
+                                                  </div>
+                                                  {Array.isArray(cautions) && cautions.length === 0 ?
+                                                        ""
+                                                      :
+                                                      <div className='bg-orange-500 h-[35px] px-7 w-fit p-1 rounded-2xl mt-3'>
+                                                        <p className='text-white text-center text-base font-montserrat'>{cautions}</p>
+                                                      </div>
+                                                  }
+                                              </div>    
                                         </div>
-                                    </div>
-                                  </div> */}
+                                      </div>
+                                  </div>    
                               </Dialog.Panel>
                           </Transition.Child>
                       </div>

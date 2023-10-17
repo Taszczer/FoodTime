@@ -30,10 +30,17 @@ export interface RecipeCardProps {
   recipe: {
     label: string
     image: any
-    ingredients: string
+    ingredients: Array<{
+      text: string
+      quantity: string
+      measure: string
+      food: string
+      weight: number
+    }>
     dietLabels: string
     calories: number
-  }
+    cautions: string
+  };
 }
 
 export interface ShowMoreProps {
