@@ -40,6 +40,7 @@ export interface RecipeCardProps {
     dietLabels: string
     calories: number
     cautions: string
+    cuisineType:string
   };
 }
 
