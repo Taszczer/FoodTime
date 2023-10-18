@@ -65,6 +65,7 @@ const Carousel = ({ backgrounds }: CarouselProps) => {
             </div>
             <div className="flex items-center justify-center w-full ">
               <motion.button
+                onClick={() => alert("Sorry this don't work yet")}
                 className={`z-50 w-[250px] xl:mt-[35px]  ${background.colorForBt} h-[50px] rounded-2xl transition mb-[30px]`}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9}}

@@ -4,6 +4,7 @@ import { RecipeCardProps } from '@/types'
 import Image from 'next/image'
 import { Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
+import { motion } from 'framer-motion'
 
 interface RecipeDetailsProps {
     isOpen: boolean
@@ -13,7 +14,56 @@ interface RecipeDetailsProps {
 
 const ShowRecipe = ({isOpen, closeModal, recipe}:RecipeDetailsProps) => {
     
-    const { label, calories, image, ingredients, dietLabels, cautions, cuisineType} = recipe.recipe
+  const { label, calories, image, ingredients, dietLabels, cautions, cuisineType } = recipe.recipe
+  let easing = [0.6, -0.05, 0.01, 0.99];
+
+  const fadeInUp = {
+    initial: {
+      y: 60,
+      opacity: 0,
+      transition: { duration: 0.6, ease: easing }
+    },
+    animate: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.6,
+        ease: easing
+      }
+    }
+  }
+
+  const secondfadeInUp = {
+    initial: {
+      y: 60,
+      opacity: 0,
+      transition: { duration: 0.1, ease: easing }
+    },
+    animate: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.6,
+        ease: easing
+      }
+    }
+  }
+
+  const fadeInLeft = {
+    initial: {
+      x: 60,
+      opacity: 0,
+      transition: { duration: 0.6, ease: easing }
+    },
+    animate: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.6,
+        ease: easing
+      }
+    }
+  }
 
   return (
       <>
@@ -51,29 +101,37 @@ const ShowRecipe = ({isOpen, closeModal, recipe}:RecipeDetailsProps) => {
                               leaveTo='opacity-0 scale-95'
                           >
                               <Dialog.Panel className='flex xl:flex-row flex-col relative z-0 w-full bg-white min-h-screen'>
-                                  <div className=''>
-                                        <Image
-                                          src={image}
-                                          alt='image'
-                                          width={1200}
-                                          height={800}
-                                          className='h-screen rounded-r-full'
-                                        />
-                                  </div>
+                                <div className=''>
+                                    <Image
+                                      src={image}
+                                      alt='image'
+                                      width={1200}
+                                      height={800}
+                                      className='h-screen rounded-r-full'
+                                    />
+                                   </div>{/* without this div it's all crushing xd */}
                                   <div className='w-full mt-8 pr-8'>
-                                  <button
-                                        type='button'
-                                        className='xl:flex-[1.5] flex justify-end w-full '
-                                        onClick={closeModal}
-                                    >
+                                      <motion.button
+                                          variants={fadeInLeft}
+                                          initial='initial'
+                                          animate='animate'
+                                          type='button'
+                                          className='xl:flex-[1.5] flex justify-end w-full '
+                                          onClick={closeModal}
+                                      >
                                         <Image
                                             src='/cancel.png'
                                             alt='close'
                                             width={50}
                                             height={50}
                                         />
-                                      </button>
-                                      <div className='flex justify-end pt-12 pr-[80px]'>
+                                      </motion.button>
+                                      <motion.div
+                                        className='flex justify-end pt-12 pr-[80px]'
+                                        variants={fadeInUp}
+                                        initial='initial'
+                                        animate='animate'
+                                      >
                                         <div className='text-right w-full'>
                                           <h1 className='font-croissant-one text-3xl text-orange-400'>{label}</h1>
                                           <p className='text-orange-300 text-2xl mt-3 text-right font-bold mr-5'>Ingradients:</p>
@@ -83,13 +141,15 @@ const ShowRecipe = ({isOpen, closeModal, recipe}:RecipeDetailsProps) => {
                                                 ))}
                                             </ul>
                                             <div className='flex items-center flex-row'>
-                                              <button
-                                                className='items-center w-[250px] h-[50px] bg-orange-300 text-white font-bold text-2xl rounded-2xl mt-6 ml-10'
+                                              <motion.button
+                                                whileHover={{ scale: 1.1 }}
+                                                whileTap={{ scale: 0.9}}
+                                                className='items-center w-[250px] h-[50px] bg-orange-400 text-white font-bold text-2xl rounded-2xl mt-6 ml-10'
                                                 onClick={() => alert("Sorry this function dont work")}
                                               >
                                                   Buy it now
-                                              </button>
-                                              <div className='grid grid-rows-2 justify-end grid-flow-col items-center w-full gap-5 mt-5'>
+                                              </motion.button>
+                                              <motion.div variants={secondfadeInUp} className='grid grid-rows-2 justify-end grid-flow-col items-center w-full gap-5 mt-5'>
                                                   <div className='bg-orange-300 h-[35px] px-7 w-fit p-1 rounded-2xl mt-3'>
                                                     <p className='text-white text-center text-base font-montserrat'>{dietLabels.join(', ')}</p>
                                                   </div>
@@ -105,13 +165,13 @@ const ShowRecipe = ({isOpen, closeModal, recipe}:RecipeDetailsProps) => {
                                                   <div className='bg-orange-400 h-[35px] px-7 w-fit p-1 rounded-2xl mt-3'>
                                                     <p className='text-white text-center text-base font-montserrat'>{cuisineType}</p>
                                                   </div>
-                                                  <div className='bg-orange-500 h-[35px] px-7 w-fit p-1 rounded-2xl mt-3'>
+                                                  <div className='bg-orange-300 h-[35px] px-7 w-fit p-1 rounded-2xl mt-3'>
                                                     <p className='text-white text-center text-base font-montserrat'>{calories.toFixed(2)+ " cal"}</p>
                                                   </div>
-                                            </div>
+                                            </motion.div>
                                           </div>
                                         </div>
-                                      </div>
+                                      </motion.div>
                                   </div>    
                               </Dialog.Panel>
                           </Transition.Child>
