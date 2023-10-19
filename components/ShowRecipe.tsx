@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { motion } from 'framer-motion'
+import { fadeInUp, secondfadeInUp, fadeInLeft } from '@/utils'
 
 interface RecipeDetailsProps {
     isOpen: boolean
@@ -15,55 +16,6 @@ interface RecipeDetailsProps {
 const ShowRecipe = ({isOpen, closeModal, recipe}:RecipeDetailsProps) => {
     
   const { label, calories, image, ingredients, dietLabels, cautions, cuisineType } = recipe.recipe
-  let easing = [0.6, -0.05, 0.01, 0.99];
-
-  const fadeInUp = {
-    initial: {
-      y: 60,
-      opacity: 0,
-      transition: { duration: 0.6, ease: easing }
-    },
-    animate: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.6,
-        ease: easing
-      }
-    }
-  }
-
-  const secondfadeInUp = {
-    initial: {
-      y: 60,
-      opacity: 0,
-      transition: { duration: 0.1, ease: easing }
-    },
-    animate: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.6,
-        ease: easing
-      }
-    }
-  }
-
-  const fadeInLeft = {
-    initial: {
-      x: 60,
-      opacity: 0,
-      transition: { duration: 0.6, ease: easing }
-    },
-    animate: {
-      x: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.6,
-        ease: easing
-      }
-    }
-  }
 
   return (
       <>
@@ -90,7 +42,7 @@ const ShowRecipe = ({isOpen, closeModal, recipe}:RecipeDetailsProps) => {
                   </Transition.Child>
                   
                   <div className='fixed inset-0 h-screen'>
-                      <div className=''>
+                      <div>
                           <Transition.Child
                               as={Fragment}
                               enter='easy-out duration-300'
@@ -100,8 +52,8 @@ const ShowRecipe = ({isOpen, closeModal, recipe}:RecipeDetailsProps) => {
                               leaveFrom='opacity-100 scale-100'
                               leaveTo='opacity-0 scale-95'
                           >
-                              <Dialog.Panel className='flex xl:flex-row flex-col relative z-0 w-full bg-white min-h-screen'>
-                                <div className=''>
+                              <Dialog.Panel className='flex flex-row relative z-0 w-full bg-white min-h-screen'>
+                                <div className=' invisible lg:visible'>
                                     <Image
                                       src={image}
                                       alt='image'
@@ -135,12 +87,12 @@ const ShowRecipe = ({isOpen, closeModal, recipe}:RecipeDetailsProps) => {
                                         <div className='text-right w-full'>
                                           <h1 className='font-croissant-one text-3xl text-orange-400'>{label}</h1>
                                           <p className='text-orange-300 text-2xl mt-3 text-right font-bold mr-5'>Ingradients:</p>
-                                            <ul className=' font-montserrat text-base text-orange-300 mt-6 max-h-[250px] overflow-y-auto'>
+                                            <ul className=' font-montserrat text-base text-orange-300 mt-6 max-h-[150px] md:max-h-[250px] overflow-y-auto'>
                                                 {ingredients.map((ingredient, index) => (
                                                     <li key={index} className='mr-5'>{ingredient.text + " - "}</li>
                                                 ))}
                                             </ul>
-                                            <div className='flex items-center flex-row'>
+                                            <div className='flex items-center flex-col-reverse md:flex-row'>
                                               <motion.button
                                                 whileHover={{ scale: 1.1 }}
                                                 whileTap={{ scale: 0.9}}

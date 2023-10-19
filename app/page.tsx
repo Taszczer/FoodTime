@@ -47,10 +47,10 @@ export default function Home() {
         <div className='flex items-center justify-between'>
           <div className='flex flex-col items-start justify-start gap-y-2.5 text-black-100'>
             <h1 className='text-orange-400 text-4xl font-extrabold'>Food catalog</h1>
-            <p className='font-bold text-orange-300 text-2xl'>Chose food then the diet</p>
+            <p className='font-bold text-orange-300 text-2xl'>Chose the diet then food</p>
           </div>
         </div>
-        <div className='flex justify-between'>
+        <div className='sm:flex justify-between'>
           <SearchBar
             setManufacturer={setQuery}
           />
@@ -63,7 +63,7 @@ export default function Home() {
         </div>  
         {recipes.length > 0 ? (
           <>
-            <div className='w-full flex-wrap flex sm:items-center max-md:justify-center gap-12 py-10 max-sm:items-center max-sm:justify-center'>
+            <div className='w-full flex-wrap flex sm:items-center max-md:justify-center gap-12 py-10 max-sm:items-center justify-center sm:justify-start'>
               {recipes?.map((item, index) => (
                 <>
                   <Tilt>
@@ -77,7 +77,7 @@ export default function Home() {
 
             {loading && (
               <div className='w-full flex justify-center items-center mt-20 '>
-                <h1 className='text-orange-300 font-croissant-one text-[44px]'>Wait a second</h1>
+                <h1 className='text-orange-300 font-croissant-one text-[44px]'>Wait a second...</h1>
               </div>
             )}
 
